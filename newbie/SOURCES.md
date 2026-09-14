@@ -1,0 +1,36 @@
+# 출처 목록
+
+확인일: 2026-09-14. 제품 공개 기록·연구·역사 자료를 사용했습니다. 모든 링크는 슬라이드와 노트에도 연결되어 있습니다.
+
+- [Google DeepMind · AlphaGo](https://deepmind.google/research/alphago/) — 2016 대국, 4:1, Move 37·78. (본문 5, 32장)
+- [OpenAI · Introducing ChatGPT](https://openai.com/index/chatgpt/) — 2022-11-30 공개 기록. (본문 6장)
+- [OpenAI · DALL·E 2](https://openai.com/index/dall-e-2/) — 2021 DALL·E와 2022 DALL·E 2의 이미지 생성. (본문 7장)
+- [OpenAI · Video generation models as world simulators](https://openai.com/index/video-generation-models-as-world-simulators/) — 2024-02 연구 공개. 영상 길이·물리적 일관성의 한계. (본문 7장)
+- [Google · Generative media models, I/O 2025](https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/) — 2025-05 Veo 3의 영상·오디오 생성 발표. (본문 7장)
+- [GitHub · Meet the new coding agent](https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/) — 2025-05 이슈에서 코드 변경과 PR로 이어지는 워크플로. 제품사 설명. (본문 6, 22장)
+- [GitHub · From pair to peer programmer](https://github.blog/news-insights/product-news/from-pair-to-peer-programmer-our-vision-for-agentic-workflows-in-github-copilot/) — 2021 Copilot부터 2025 에이전트까지. 제품사 설명. (본문 6, 26장)
+- [Google DeepMind · AlphaEvolve](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/) — 2025-05 알고리즘 탐색과 AI 학습 인프라 최적화. (본문 8장)
+- [METR · Early-2025 developer productivity study](https://metr.org/Early_2025_AI_Experienced_OS_Devs_Study-paper.pdf) — 16명·246개 작업·2025년 초 도구. 평균 소요 시간 19% 증가. (본문 9장)
+- [METR · Experiment design update](https://metr.org/blog/2026-02-24-uplift-update/) — 2026-02-24 후속 데이터의 선택 편향과 측정 한계. (본문 9장)
+- [IBM · Deep Blue](https://www.ibm.com/history/deep-blue) — 1997 카스파로프와의 매치 승리. (본문 11장)
+- [Garry Kasparov · I Was There When: AI Mastered Chess](https://www.kasparov.com/i-was-there-when-ai-mastered-chess-mit-technology-review-october-6-2022/) — 당사자의 회고: 1998 Advanced Chess, 인간과 컴퓨터의 협업. (본문 11, 40장)
+- [James Bessen · Technology and Wages, Yale UP](https://yalebooks.yale.edu/2015/05/13/technology-and-wages-a-conversation-with-james-bessen/) — 미국 ATM 보급과 은행원 업무 변화에 대한 2015년 설명. (본문 12장)
+- [U.S. BLS · Tellers, Occupational Outlook Handbook](https://www.bls.gov/ooh/office-and-administrative-support/tellers.htm) — 온라인 뱅킹과 은행원 수요. 장기 전망은 예측이며 수시 갱신됨. (본문 12장)
+- [The Met · Daguerre and the Invention of Photography](https://www.metmuseum.org/essays/daguerre-1787-1851-and-the-invention-of-photography) — 사진의 탄생, 예술과 과학의 도구라는 이중적 성격. (본문 13장)
+- [The Henry Ford · The Carriage Era](https://www.thehenryford.org/collections/explore/articles/the-carriage-era-horse-drawn-vehicles) — 마차 시대의 교통과 용도. 전환 비용에 대한 설명은 강의의 해석. (본문 13장)
+- [Museum of American Heritage · Elevators](https://www.moah.org/elevators) — 미국에서 1950년대 자동화와 엘리베이터 운전원의 감소. (본문 13장)
+- [The National Archives · The proclamation of Ned Ludd](https://www.nationalarchives.gov.uk/explore-the-collection/stories/the-proclamation-of-ned-ludd/) — 1811년 이후 러다이트 운동, 청원과 저항의 맥락. (본문 14장)
+- [Anthropic · Introducing the Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index) — 2025년 Claude 사용의 작업별 분석. 전체 고용을 대표하지 않음. (본문 15장)
+- [Paul A. David · The Dynamo and the Computer (1990)](https://gwern.net/doc/economics/automation/1990-david.pdf) — 공장 전기화와 조직·배치 전환, 생산성 지연의 역사적 분석. (본문 19장)
+- [Nielsen Norman Group · WAP field study (2000)](https://www.nngroup.com/articles/wap-mobile-phones-field-study-findings/) — 1994년 웹사이트의 brochureware: 인쇄 디자인을 인터랙티브 매체에 복제. (본문 20장)
+- [Apple · The App Store turns 10](https://www.apple.com/newsroom/2018/07/app-store-turns-10/) — 2008 앱스토어 출범과 모바일 서비스 생태계에 대한 회고. (본문 21장)
+- [Computer History Museum · 1957](https://www.computerhistory.org/timeline/1957/) — FORTRAN과 수작업 코드 대비 효율성에 대한 당시 회의. (본문 25장)
+- [Computer History Museum · Sketchpad, 1963](https://www.computerhistory.org/tdih/january/7/) — 대화형 컴퓨터 설계의 초기 사례. (본문 25장)
+- [NASA ASRS · Airmanship and Automation (2020)](https://asrs.arc.nasa.gov/publications/callback/cb_490.html) — 조종사의 자동화 감시, 상황 인식, 조작 역량. (본문 27장)
+- [Anthropic · AI assistance and coding skills (2026)](https://www.anthropic.com/research/AI-assistance-coding-skills) — 새 라이브러리 학습 실험. 퀴즈 평균 50% 대 67%, 일반화에 주의. (본문 28장)
+- [NTSB · US Airways Flight 1549](https://www.ntsb.gov/investigations/Pages/DCA09MA026.aspx) — 2009-01-15 사고, 비상착수, 승무원 의사결정과 팀워크. (본문 33장)
+- [Dahmani & Bohbot · Scientific Reports (2020)](https://www.nature.com/articles/s41598-020-62877-0) — 운전자 50명, 추적 13명. GPS 사용과 공간 기억의 연관성. (본문 34장)
+- [NASA · Mitigating Complacency and Automation Bias (2017)](https://hsi.arc.nasa.gov/flightcognition/Publications/NASA_TM_2017-219565.pdf) — 자동화 결과를 독립적 정보 탐색의 대체물로 사용하는 편향. (본문 35장)
+- [Walters & Wilder · Scientific Reports (2023)](https://www.nature.com/articles/s41598-023-41032-5) — 연구자가 생성된 문헌 인용의 실재 여부와 서지 오류를 검증. (본문 36장)
+
+시각 자료별 원본 링크·크레딧은 [이미지·삽화 출처](MEDIA_CREDITS.md)에 정리했습니다. 기사 카드는 강의용 요약이며 원문을 새 탭으로 엽니다.

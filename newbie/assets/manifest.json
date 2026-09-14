@@ -1,0 +1,157 @@
+{
+  "alphago-scene": {
+    "url": "https://lh3.googleusercontent.com/LHkkMoyUK2LciCwcL7q1ABOIETDuT_Q_lZDO08Usncj02UaMCmYbeSh7DhHgbJAo7jnrGsfNUksouRwHgPc1XlR_vkBP-Y4-1XkLQ_AVRP2NMDv-Qw=w1440-h810-n-nu",
+    "source": "https://deepmind.google/research/alphago/",
+    "publisher": "Google DeepMind · AlphaGo",
+    "file": "assets/alphago-scene.png",
+    "bytes": 908718
+  },
+  "deep-blue-match": {
+    "url": "https://assets.ibm.com/is/image/ibm/1997_deep-blue_rematch_322?ts=1702922122489&dpr=off",
+    "source": "https://www.ibm.com/history/deep-blue",
+    "publisher": "IBM · Deep Blue",
+    "file": "assets/deep-blue-match.jpg",
+    "bytes": 311456
+  },
+  "alphaevolve-diagram": {
+    "url": "https://lh3.googleusercontent.com/mUd0dQneyWkX6ohzKGk0dE4-vJaSgvgYGPFjWC2krhVWILtIiMFkSxz8OWA3ug17ZzUd61rKPuHFWafiuVJ2j9IVFzHSlklrd5ykNk3t_AZno9gXBfU=w1440",
+    "source": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+    "publisher": "Google DeepMind · AlphaEvolve",
+    "file": "assets/alphaevolve-diagram.png",
+    "bytes": 315824
+  },
+  "carriage": {
+    "url": "https://www.thehenryford.org/images/thehenryfordlibraries/blog-images/thf203336.jpg?sfvrsn=23464f3_0",
+    "source": "https://www.thehenryford.org/collections/explore/articles/the-carriage-era-horse-drawn-vehicles",
+    "publisher": "The Henry Ford · The Carriage Era",
+    "file": "assets/carriage.jpg",
+    "bytes": 98087
+  },
+  "steam-engine": {
+    "url": "https://www.thehenryford.org/images/thehenryfordlibraries/theme-images---1920x1440/power_energy_1920x1440.png?sfvrsn=5b7a693a_1",
+    "source": "https://www.thehenryford.org/collections/explore/articles/the-carriage-era-horse-drawn-vehicles",
+    "publisher": "The Henry Ford · The Carriage Era",
+    "file": "assets/steam-engine.png",
+    "bytes": 4500875
+  },
+  "luddite-letter": {
+    "url": "https://www.nationalarchives.gov.uk/media/images/proclamation-n.max-1024x1024.format-webp.webpquality-70.webp",
+    "source": "https://www.nationalarchives.gov.uk/explore-the-collection/stories/the-proclamation-of-ned-ludd/",
+    "publisher": "The National Archives · The proclamation of Ned Ludd",
+    "file": "assets/luddite-letter.webp",
+    "bytes": 121664
+  },
+  "iphone-appstore": {
+    "url": "https://www.apple.com/newsroom/images/product/app-store/App_Store_10th_anniversary_iPhone_first_gen_07102018_inline.jpg.large.jpg",
+    "source": "https://www.apple.com/newsroom/2018/07/app-store-turns-10/",
+    "publisher": "Apple · The App Store turns 10",
+    "file": "assets/iphone-appstore.jpg",
+    "bytes": 126225
+  },
+  "mobile-world": {
+    "url": "https://www.apple.com/newsroom/images/product/app-store/Apple_App_Store_10th_Anniversary_AR_07052018_inline.jpg.large.jpg",
+    "source": "https://www.apple.com/newsroom/2018/07/app-store-turns-10/",
+    "publisher": "Apple · The App Store turns 10",
+    "file": "assets/mobile-world.jpg",
+    "bytes": 296898
+  },
+  "sketchpad": {
+    "url": "https://images.computerhistory.org/tdih/07january-1.jpg?w=600",
+    "source": "https://www.computerhistory.org/tdih/january/7/",
+    "publisher": "Computer History Museum · Sketchpad, 1963",
+    "file": "assets/sketchpad.jpg",
+    "bytes": 36125
+  },
+  "fortran": {
+    "url": "https://images.computerhistory.org/timeline/timeline_sw.languages_1957.fortran.jpg",
+    "source": "https://www.computerhistory.org/timeline/1957/",
+    "publisher": "Computer History Museum · 1957",
+    "file": "assets/fortran.jpg",
+    "bytes": 62334
+  },
+  "cockpit": {
+    "url": "https://asrs.arc.nasa.gov/publications/callback/490_1.gif",
+    "source": "https://asrs.arc.nasa.gov/publications/callback/cb_490.html",
+    "publisher": "NASA ASRS · Airmanship and Automation (2020)",
+    "file": "assets/cockpit.gif",
+    "bytes": 7639
+  },
+  "gps-study": {
+    "url": "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41598-020-62877-0/MediaObjects/41598_2020_62877_Fig1_HTML.png",
+    "source": "https://www.nature.com/articles/s41598-020-62877-0",
+    "publisher": "Dahmani & Bohbot · Scientific Reports (2020)",
+    "file": "assets/gps-study.png",
+    "bytes": 411698,
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": "Louisa Dahmani & Véronique D. Bohbot"
+  },
+  "copilot-issue": {
+    "url": "https://github.blog/wp-content/uploads/2025/05/PadawayBlog_Assignee_006.jpg?resize=1600%2C850",
+    "source": "https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/",
+    "publisher": "GitHub · Meet the new coding agent",
+    "file": "assets/copilot-issue.jpg",
+    "bytes": 128443
+  },
+  "copilot-review": {
+    "url": "https://github.blog/wp-content/uploads/2025/05/copilot1.png?resize=1024%2C645",
+    "source": "https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/",
+    "publisher": "GitHub · Meet the new coding agent",
+    "file": "assets/copilot-review.png",
+    "bytes": 45914
+  },
+  "metr-chart": {
+    "url": "https://metr.org/assets/images/uplift-2026-post/uplift_timeline.png",
+    "source": "https://metr.org/blog/2026-02-24-uplift-update/",
+    "publisher": "METR · Experiment design update",
+    "file": "assets/metr-chart.png",
+    "bytes": 59916
+  },
+  "imagen-whale": {
+    "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/wm_us_extra_batch_16_05_2015_11.width-1000.format-webp.webp",
+    "source": "https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/",
+    "publisher": "Google · Generative media models, I/O 2025",
+    "file": "assets/imagen-whale.webp",
+    "bytes": 89942
+  },
+  "luddite-engraving": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Luddite.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Luddite.jpg",
+    "publisher": "Wikimedia Commons",
+    "file": "assets/luddite-engraving.jpg",
+    "bytes": 6384060,
+    "license": "Public domain",
+    "creator": "Unknown, published May 1812"
+  },
+  "hudson": {
+    "file": "assets/hudson-evacuation.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/US_Airways_Flight_1549_%28N106US%29_after_crashing_into_the_Hudson_River_%28crop_2%29.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:US_Airways_Flight_1549_(N106US)_after_crashing_into_the_Hudson_River_(crop_2).jpg",
+    "publisher": "Greg L / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "modifications": "Commons 공개 크롭 버전. 이 덱에서 추가 편집 없음.",
+    "bytes": 259340
+  },
+  "dalle2-astronaut": {
+    "file": "assets/dalle2-astronaut.jpg",
+    "url": "https://cdn.openai.com/dall-e-2/demos/text2im/astronaut/horse/photo/0.jpg",
+    "source": "https://openai.com/index/dall-e-2/",
+    "publisher": "OpenAI · DALL·E 2",
+    "bytes": 113034
+  },
+  "alphago-game4": {
+    "file": "assets/alphago-game4.webp",
+    "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FACEBOOK_RESULTS_CARD_DAY_4.width-1200.format-webp.webp",
+    "source": "https://blog.google/innovation-and-ai/products/alphagos-ultimate-challenge/",
+    "publisher": "Google · 2016 공식 대국 결과",
+    "bytes": 30590
+  },
+  "sora-tokyo": {
+    "file": "assets/sora-tokyo.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/OpenAI_Sora_in_Action-_Tokyo_Walk.webm/960px--OpenAI_Sora_in_Action-_Tokyo_Walk.webm.jpg?_=20240216113130",
+    "source": "https://commons.wikimedia.org/wiki/File:OpenAI_Sora_in_Action-_Tokyo_Walk.webm",
+    "publisher": "OpenAI / Wikimedia Commons",
+    "bytes": 114734
+  }
+}
