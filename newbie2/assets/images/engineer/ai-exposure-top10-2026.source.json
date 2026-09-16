@@ -1,0 +1,61 @@
+{
+  "file": "ai-exposure-top10-2026.png",
+  "source": "https://www.anthropic.com/research/labor-market-impacts",
+  "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/a16a5b9ba4a5280ef41e058dff6964a3f116c854-4584x2579.png",
+  "published": "2026-03-05",
+  "figure": 3,
+  "modifications": "none",
+  "metric": "Observed exposure, not probability of job loss",
+  "rankings": [
+    {
+      "rank": 1,
+      "occupation_ko": "컴퓨터 프로그래머",
+      "observed_exposure_percent": 74.5
+    },
+    {
+      "rank": 2,
+      "occupation_ko": "고객상담원",
+      "observed_exposure_percent": 70.1
+    },
+    {
+      "rank": 3,
+      "occupation_ko": "데이터 입력원",
+      "observed_exposure_percent": 67.1
+    },
+    {
+      "rank": 4,
+      "occupation_ko": "의료기록 전문가",
+      "observed_exposure_percent": 66.7
+    },
+    {
+      "rank": 5,
+      "occupation_ko": "시장조사·마케팅 전문가",
+      "observed_exposure_percent": 64.8
+    },
+    {
+      "rank": 6,
+      "occupation_ko": "도소매·제조업 영업직 (기술·과학 제품 제외)",
+      "observed_exposure_percent": 62.8
+    },
+    {
+      "rank": 7,
+      "occupation_ko": "금융·투자 분석가",
+      "observed_exposure_percent": 57.2
+    },
+    {
+      "rank": 8,
+      "occupation_ko": "소프트웨어 품질 분석가·테스터",
+      "observed_exposure_percent": 51.9
+    },
+    {
+      "rank": 9,
+      "occupation_ko": "정보보안 분석가",
+      "observed_exposure_percent": 48.6
+    },
+    {
+      "rank": 10,
+      "occupation_ko": "컴퓨터 사용자 지원 전문가",
+      "observed_exposure_percent": 46.8
+    }
+  ]
+}

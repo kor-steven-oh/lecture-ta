@@ -16,3 +16,9 @@
 - [전체 자료 ZIP](ai-onboarding-deck.zip) — 다른 PC로 옮길 때 압축을 풀고 `newbie/index.html`을 엽니다.
 
 이미지가 표시되려면 `newbie/assets/` 폴더를 HTML과 함께 유지하세요. 영상·오디오 시연은 연결된 원문에서 재생합니다.
+
+## 최신 강의 자료 · newbie2
+
+- [4개 챕터 · 42장 슬라이드](newbie2/index.html)
+- [실행 방법](newbie2/README.md)
+- [발표 메모](newbie2/review/engineer-choice-notes.md)

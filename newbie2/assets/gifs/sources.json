@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Epic",
+    "source_url": "https://cdn.higgsfield.ai/cinema_studio_40_creative_controls/1d5bace2-93f0-49c0-84df-bdfd4ebf84b4.mp4",
+    "source_page": "https://higgsfield.ai/cinematic-video-generator",
+    "local_path": "assets/gifs/higgsfield-epic.gif",
+    "accessed": "2026-09-16",
+    "duration_seconds": 10.041667,
+    "excerpt": "First up to 6 seconds; 12 fps; 480 px wide; original aspect ratio; silent looping GIF"
+  },
+  {
+    "name": "Drama",
+    "source_url": "https://cdn.higgsfield.ai/cinema_studio_40_creative_controls/a3129a2d-e132-4e67-9edc-f5d0075191ca.mp4",
+    "source_page": "https://higgsfield.ai/cinematic-video-generator",
+    "local_path": "assets/gifs/higgsfield-drama.gif",
+    "accessed": "2026-09-16",
+    "duration_seconds": 9.041667,
+    "excerpt": "First up to 6 seconds; 12 fps; 480 px wide; original aspect ratio; silent looping GIF"
+  },
+  {
+    "name": "Noir",
+    "source_url": "https://cdn.higgsfield.ai/cinema_studio_40_creative_controls/6913dc79-1b79-48bb-b7b3-4af4264beac8.mp4",
+    "source_page": "https://higgsfield.ai/cinematic-video-generator",
+    "local_path": "assets/gifs/higgsfield-noir.gif",
+    "accessed": "2026-09-16",
+    "duration_seconds": 9.041667,
+    "excerpt": "First up to 6 seconds; 12 fps; 480 px wide; original aspect ratio; silent looping GIF"
+  },
+  {
+    "name": "Comedy",
+    "source_url": "https://cdn.higgsfield.ai/cinema_studio_40_creative_controls/b2ae8058-ae8a-4708-b004-db614eaa02e5.mp4",
+    "source_page": "https://higgsfield.ai/cinematic-video-generator",
+    "local_path": "assets/gifs/higgsfield-comedy.gif",
+    "accessed": "2026-09-16",
+    "duration_seconds": 8.041667,
+    "excerpt": "First up to 6 seconds; 12 fps; 480 px wide; original aspect ratio; silent looping GIF"
+  },
+  {
+    "name": "Action",
+    "source_url": "https://cdn.higgsfield.ai/cinema_studio_40_creative_controls/ce8bb8b8-1755-4a17-9b14-f4f697a84ea5.mp4",
+    "source_page": "https://higgsfield.ai/cinematic-video-generator",
+    "local_path": "assets/gifs/higgsfield-action.gif",
+    "accessed": "2026-09-16",
+    "duration_seconds": 5.041667,
+    "excerpt": "First up to 6 seconds; 12 fps; 480 px wide; original aspect ratio; silent looping GIF"
+  },
+  {
+    "name": "General",
+    "source_url": "https://cdn.higgsfield.ai/cinema_studio_40_creative_controls/e2c0b8ad-e163-4c9b-95b3-1eb8396ef572.mp4",
+    "source_page": "https://higgsfield.ai/cinematic-video-generator",
+    "local_path": "assets/gifs/higgsfield-general.gif",
+    "accessed": "2026-09-16",
+    "duration_seconds": 8.041667,
+    "excerpt": "First up to 6 seconds; 12 fps; 480 px wide; original aspect ratio; silent looping GIF"
+  }
+]

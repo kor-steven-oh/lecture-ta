@@ -1,0 +1,164 @@
+[
+  {
+    "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/03/deep-blue-kasparov-main.jpg",
+    "name": "deep-blue-kasparov",
+    "original_error": "HTTP Error 404: Not Found",
+    "download_url": "https://3.bp.blogspot.com/-PE5xJw3UF9s/WnAYlI0-hcI/AAAAAAAAPJM/0FlvYDgvb3ss0Vq3qGKtlETDqYEDEw32ACLcBGAs/s1600/Kasparov_vs_Deep_Blue%2B%252821%2529.jpg",
+    "path": "assets/images/deep-blue-kasparov.jpg",
+    "bytes": 115443
+  },
+  {
+    "url": "https://assets2.cbsnewsstatic.com/hub/i/r/2011/02/17/c8adac76-a642-11e2-a3f0-029118418759/thumbnail/1200x630/4367a665f104b9d47b721e9ccbe18e30/AP110114053298.jpg?v=d2d77bee90bcafa285fd6d60bd8b3612",
+    "path": "assets/images/watson-jeopardy.jpg",
+    "bytes": 128730
+  },
+  {
+    "url": "https://media.licdn.com/dms/image/v2/D4E12AQGHZT2QvCxZyA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1737838942361?e=2147483647&t=PaiFyN80zmtxFmA3Ah4mh0Wnes_3DOXMJlA9cZHxas8&v=beta",
+    "path": "assets/images/alphago-lee-sedol.jpg",
+    "bytes": 163720
+  },
+  {
+    "url": "https://richardcsuwandi.github.io/assets/img/move37.jpg",
+    "path": "assets/images/alphago-move-37.jpg",
+    "bytes": 132524
+  },
+  {
+    "url": "https://miro.medium.com/v2/resize%3Afit%3A800/1%2AHUuO4A2QtiqYX2UAqnjiLQ.png",
+    "path": "assets/images/lee-sedol-move-78.png",
+    "bytes": 288534,
+    "note": "Previous filename was incorrect: this is Game 2, AlphaGo move 37. No longer used."
+  },
+  {
+    "url": "https://asiasociety.org/sites/default/files/2022-05/220506_AI_supremacy.jpg",
+    "path": "assets/images/alphago-master.jpg",
+    "bytes": 1019103
+  },
+  {
+    "url": "https://miro.medium.com/1%2AEhPz-4pGJgUjpR4fIx8Aww.jpeg",
+    "path": "assets/images/alphago-zero.jpg",
+    "bytes": 272698,
+    "note": "Not a Zero illustration; this depicts Lee Sedol move 78. No longer used."
+  },
+  {
+    "url": "https://glasstire.com/wp-content/uploads/2022/09/Jason-Allen-AI-generated-state-fair-winning-artwork.jpg",
+    "name": "midjourney-theatre",
+    "original_error": "HTTP Error 403: Forbidden",
+    "download_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Th%C3%A9%C3%A2tre_D%E2%80%99op%C3%A9ra_Spatial.jpg",
+    "path": "assets/images/midjourney-theatre.jpg",
+    "bytes": 407432
+  },
+  {
+    "url": "https://miro.medium.com/v2/resize%3Afit%3A2000/1%2AkGFAPbpUERexYdAF8a7EBA.jpeg",
+    "path": "assets/images/chatgpt-launch.jpg",
+    "bytes": 72627
+  },
+  {
+    "url": "https://cdn.mos.cms.futurecdn.net/6zPNKuoF4Mfnc5ypotNR2b-1200-80.png",
+    "path": "assets/images/gemini-multimodal.png",
+    "bytes": 322189
+  },
+  {
+    "url": "https://img.rtve.es/n/16578738?w=1600",
+    "path": "assets/images/professional-exams.jpg",
+    "bytes": 149034
+  },
+  {
+    "url": "https://md.teyit.org/img/ws-ai-teyitpedia.webp",
+    "path": "assets/images/will-smith-spaghetti.webp",
+    "bytes": 40006
+  },
+  {
+    "url": "https://cdn.mos.cms.futurecdn.net/v2/t%3A0%2Cl%3A350%2Ccw%3A2098%2Cch%3A1574%2Cq%3A80%2Cw%3A2098/cc3vqfJHHJCcDnTLcdt4QL.jpg",
+    "path": "assets/images/sora.jpg",
+    "bytes": 310702
+  },
+  {
+    "url": "https://static.android.com.pl/uploads/2025/05/google_veo_3.png",
+    "path": "assets/images/veo-3.png",
+    "bytes": 1072665
+  },
+  {
+    "url": "https://images.halfdoneclub.co/optimized/community/images/1b8637232933-680e83.webp",
+    "path": "assets/images/higgsfield.webp",
+    "bytes": 113986
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Lee-sedol-alphago-divine-move.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Lee-sedol-alphago-divine-move.jpg",
+    "path": "assets/images/lee-sedol-divine-78.jpg",
+    "bytes": 145010,
+    "credit": "Axd",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "None; displayed with original aspect ratio."
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/ChessStartingPosition.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:ChessStartingPosition.jpg",
+    "path": "assets/images/chess-board.jpg",
+    "bytes": 1495622,
+    "credit": "Bubba73 / Jud McCranie",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "None; displayed with original aspect ratio."
+  },
+  {
+    "url": "https://assets.science.nasa.gov/content/dam/science/missions/webb/science/2022/07/STScI-01G8H15R2PGEXQD7TYYBFJ3FT4.png/jcr:content/renditions/1960x2000.png",
+    "source_page": "https://science.nasa.gov/asset/webb/webbs-first-deep-field-unveiled-nircam-image/",
+    "path": "assets/images/universe-webb.png",
+    "bytes": 5788515,
+    "changes": "None; displayed with original aspect ratio."
+  },
+  {
+    "url": "https://lh3.googleusercontent.com/2j5Cl76edOn8Z6PCcgAWTwT6Fj4OZP73-wdzYKx04lCSuTfxJe1f5HxVOQIUVEaxqD5bv109KO8gNNMI1oOrixbVyqQc_m_reqSd7AZCLrb5YS9Z=w1440",
+    "source_page": "https://deepmind.google/blog/alphagos-next-move/",
+    "path": "assets/images/alphago-master-ke-jie.jpg",
+    "bytes": 100775,
+    "changes": "None; displayed with original aspect ratio."
+  },
+  {
+    "url": "https://lh3.googleusercontent.com/yq94Hk34eZy1mCKyTDtIkGeMyUD0Y2_-hfrFL3gS6GHFVfrJTZvkcsxt7kFWfo6NPGaYFe10FPydtNo9KTK_qbZW4W_Pnb6kSJlAidezrgU_M6zvmA8=w1440",
+    "source_page": "https://deepmind.google/blog/alphago-zero-starting-from-scratch/",
+    "path": "assets/images/alphago-zero-ratings.jpg",
+    "bytes": 57515,
+    "changes": "None; displayed with original aspect ratio."
+  },
+  {
+    "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AlphaGo_hero.width-1200.format-webp.webp",
+    "source_page": "https://blog.google/innovation-and-ai/products/alphagos-ultimate-challenge/",
+    "path": "assets/images/alphago-lee-official.webp",
+    "bytes": 101354,
+    "changes": "None; displayed with original aspect ratio."
+  },
+  {
+    "url": "https://gomagic.org/files/images/6-lee-sedol-game-move-78.jpg",
+    "source_page": "https://gomagic.org/the-story-of-alphago-how-ai-conquered-the-hardest-board-game/",
+    "path": "assets/images/lee-sedol-78-broadcast.jpg",
+    "bytes": 47235,
+    "changes": "None; displayed with original aspect ratio."
+  },
+  {
+    "url": "https://gomagic.org/files/images/5-lee-sedol-vs-alphago-midgame-board.jpg",
+    "source_page": "https://gomagic.org/the-story-of-alphago-how-ai-conquered-the-hardest-board-game/",
+    "path": "assets/images/alphago-37-broadcast.jpg",
+    "bytes": 43188,
+    "changes": "None; displayed with original aspect ratio."
+  },
+  {
+    "url": "https://t1.daumcdn.net/news/202603/12/joongang/20260312000506723typb.jpg",
+    "source_page": "https://v.daum.net/v/20260312000506849",
+    "path": "assets/images/alphago-37-marked.jpg",
+    "bytes": 131566,
+    "changes": "None; displayed with original aspect ratio."
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Go_board.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Go_board.jpg",
+    "path": "assets/images/go-board.jpg",
+    "bytes": 106444,
+    "credit": "Donarreiskoffer",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "None; displayed with original aspect ratio."
+  }
+]

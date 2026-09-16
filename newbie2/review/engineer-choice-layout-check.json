@@ -1,0 +1,47 @@
+{
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "slides": 42,
+      "failures": []
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "slides": 42,
+      "failures": []
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "slides": 42,
+      "failures": []
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "slides": 42,
+      "failures": []
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "slides": 42,
+      "failures": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "slides": 42,
+      "failures": []
+    }
+  ],
+  "errors": [],
+  "remote": [],
+  "keyboard": {
+    "first": "THE SPEED",
+    "second": "02 / 42",
+    "last": "42 / 42"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "sources": {
+    "openai": "https://openai.com/index/research-acceleration-view-inside-openai/",
+    "fermat": "https://www.anthropic.com/research/formalizing-fermats-last-theorem",
+    "jensen": "https://blogs.nvidia.com/blog/jensen-huang-dreamforce/",
+    "context": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+    "harness": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+    "wiki": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+    "loop": "https://www.anthropic.com/engineering/building-effective-agents"
+  },
+  "assets": [
+    {
+      "file": "fermat-proof.png",
+      "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/afd8e238255ec2654f2322f3d3630dcf1e8ea4ca-6800x3264.png",
+      "source": "https://www.anthropic.com/research/formalizing-fermats-last-theorem",
+      "modifications": "none"
+    },
+    {
+      "file": "jensen-dreamforce-2026.jpg",
+      "url": "https://blogs.nvidia.com/wp-content/uploads/2026/09/DF26-SF-260915-EL2_6006-1-1280x854.jpg",
+      "source": "https://blogs.nvidia.com/blog/jensen-huang-dreamforce/",
+      "modifications": "none"
+    }
+  ]
+}

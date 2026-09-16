@@ -1,0 +1,43 @@
+{
+  "retrieved": "2026-09-16",
+  "assets": [
+    {
+      "file": "ilo-occupations.png",
+      "download_url": "https://datawrapper.dwcdn.net/x3jzk/full.png",
+      "source_page": "https://www.ilo.org/resource/article/how-might-generative-ai-impact-different-occupations"
+    },
+    {
+      "file": "ilo-employment.png",
+      "download_url": "https://datawrapper.dwcdn.net/noouS/full.png",
+      "source_page": "https://www.ilo.org/resource/article/how-might-generative-ai-impact-different-occupations"
+    },
+    {
+      "file": "developer-employment.png",
+      "download_url": "https://public.flourish.studio/visualisation/29266867/thumbnail",
+      "source_page": "https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/"
+    },
+    {
+      "file": "copilot-issue.png",
+      "download_url": "https://github.blog/wp-content/uploads/2025/06/Screenshot-2025-06-05-at-11.22.28 AM.png",
+      "source_page": "https://github.blog/ai-and-ml/github-copilot/assigning-and-completing-issues-with-coding-agent-in-github-copilot/"
+    },
+    {
+      "file": "nasa-engineering.jpg",
+      "download_url": "https://www.nasa.gov/wp-content/uploads/2019/02/seh_figure_21-1_se_engine_1080x750.jpg",
+      "source_page": "https://www.nasa.gov/reference/2-0-fundamentals-of-systems-engineering/"
+    },
+    {
+      "file": "webb-test.jpg",
+      "download_url": "https://svs.gsfc.nasa.gov/vis/a010000/a013600/a013639/Webb_Tower_Deployment_Test-Main-clean-a.00167_print.jpg",
+      "source_page": "https://svs.gsfc.nasa.gov/13639",
+      "notes": "NASA 공식 무자막 영상 프레임. 2020년 전개 구조물 시험."
+    },
+    {
+      "file": "copilot-pr.png",
+      "download_url": "https://images.ctfassets.net/8aevphvgewt8/7dLLGoizk3zpaxT4MHYqrm/4100c79f75cc0b31a14154f50cb315ac/agents-on-github-hero-mission-control.png",
+      "source_page": "https://github.com/features/copilot/agents",
+      "notes": "GitHub 공식 제품 예시 이미지. 실제 고객의 작업 실적으로 제시하지 않음."
+    }
+  ],
+  "notes": "슬라이드에는 developer-employment.png, copilot-pr.png, webb-test.jpg 사용. ILO와 NASA 도표 파일은 조사 참고 원본으로 보관."
+}

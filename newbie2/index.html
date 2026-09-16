@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 강의 · THE SPEED / THE QUESTION / THE ENGINEER / THE CHOICE</title>
+<style>
+:root{--bg:#0b0d12;--fg:#f7f8fb;--muted:#a5afbf;--lime:#e3ff5f;--blue:#4b60dd;--line:rgba(255,255,255,.14)}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#050608;color:var(--fg);font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",Arial,sans-serif}
+/* Keep the presentation composition intact at every viewport size. */
+.deck{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform:translate(-50%,-50%) scale(var(--deck-scale,1));transform-origin:center;background:var(--bg)}
+.slide{position:absolute;inset:0;display:none;padding:44px 60px 34px;background:radial-gradient(circle at 100% 0%,rgba(75,96,221,.10),transparent 35%),linear-gradient(180deg,#0d1016,#090b0f)}
+.slide.active{display:flex;flex-direction:column}
+.cover{align-items:center;justify-content:center}
+.cover h1{margin:0;font-size:132px;letter-spacing:-.075em;font-weight:950}
+.header{display:flex;justify-content:space-between;align-items:center;flex:none;height:28px}
+.kicker,.page{font-size:14px;letter-spacing:.14em;font-weight:700;color:var(--muted)}
+.page{font-variant-numeric:tabular-nums}
+.titleblock{flex:none;padding:24px 0 28px}
+h2{margin:0;font-size:56px;line-height:1.12;letter-spacing:-.045em;font-weight:850;word-break:keep-all}
+.sub{margin:12px 0 0;font-size:22px;line-height:1.4;color:var(--muted);word-break:keep-all}
+.stage{flex:1;min-height:0;display:grid;gap:36px;align-items:stretch}
+.photo-left{grid-template-columns:minmax(0,2.15fr) minmax(0,1fr)}
+.photo-right{grid-template-columns:minmax(0,1fr) minmax(0,2.15fr)}
+.equal{grid-template-columns:repeat(2,minmax(0,1fr))}
+.one{grid-template-columns:minmax(0,1fr)}
+figure{margin:0}
+.media{min-width:0;min-height:0;display:flex;flex-direction:column;gap:12px}
+.viewport{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#11151c}
+.viewport img{display:block;width:100%;height:100%;object-fit:contain;min-width:0;min-height:0}
+.light .viewport{background:#f4f4f1}
+figcaption{flex:none;font-size:16px;line-height:1.4;color:var(--muted)}
+.side{min-width:0;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:24px}
+.year{font-size:76px;line-height:1;font-weight:900;letter-spacing:-.05em;color:var(--lime)}
+.key{font-size:38px;line-height:1.3;font-weight:750;letter-spacing:-.035em;word-break:keep-all}
+.key strong{color:var(--lime)}
+.note{margin:0;padding-top:20px;border-top:1px solid var(--line);font-size:22px;line-height:1.6;color:#c5cdd9;word-break:keep-all}
+.footer{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-top:20px;min-height:42px;flex:none}
+.source{max-width:1350px;font-size:12px;line-height:1.45;color:#939cab}
+.source a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.nav{font-size:12px;color:var(--muted);white-space:nowrap}
+a:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 32px;align-content:center}
+.t{border-top:2px solid var(--line);padding:26px 0;min-height:184px}
+.t b{display:block;font-size:46px;letter-spacing:-.04em;color:var(--lime)}
+.t span{display:block;margin-top:16px;font-size:25px;line-height:1.45;word-break:keep-all}
+.moves{grid-template-columns:640px minmax(0,1fr);gap:42px}
+.moves .board .viewport{background:#16140f;border:none}
+.move-context{display:flex;flex-direction:column;min-height:0;gap:24px}
+.move-context .media{flex:1;min-height:0}
+.move-context .viewport{background:#13171d}
+.move-meta{display:flex;align-items:center;gap:24px;flex:none;padding-top:18px;border-top:1px solid var(--line)}
+.move-number{font-size:82px;line-height:1;font-weight:900;color:var(--lime);letter-spacing:-.06em}
+.move-meta p{margin:0;font-size:24px;line-height:1.5;word-break:keep-all}
+.triptych{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.comparison{display:flex;flex-direction:column;min-height:0;min-width:0}
+.comparison+.comparison{border-left:0}
+.comparison h3{margin:0 0 20px;font-size:32px;letter-spacing:-.025em}
+.comparison .media{flex:1;min-height:0}
+.comparison .value{margin-top:24px;font-size:70px;font-weight:900;line-height:1.05;color:var(--lime);letter-spacing:-.045em}
+.comparison .descriptor{margin:12px 0 0;font-size:21px;color:#c5cdd9;line-height:1.45}
+sup{font-size:.55em;vertical-align:super;letter-spacing:-.01em}
+.evolution{align-items:center}
+.evo{min-width:0;min-height:0;display:flex;flex-direction:column;gap:18px}
+.evo .when{font-size:17px;letter-spacing:.1em;color:var(--muted)}
+.evo h3{margin:0;font-size:34px;letter-spacing:-.035em}
+.evo .media{height:325px;flex:none}
+.evo .viewport{border-radius:12px}
+.evo p{margin:0;font-size:24px;line-height:1.45;word-break:keep-all}
+.evo strong{font-size:42px;color:var(--lime);line-height:1.2}
+.evo .detail{min-height:80px;font-size:21px;color:#c5cdd9}
+.news{padding:48px;background:#f3f2ee;color:#16181d;border-radius:16px;display:flex;flex-direction:column;justify-content:center;gap:28px}
+.news .paper{font-size:20px;color:#666}
+.news .headline{font-size:46px;line-height:1.3;letter-spacing:-.045em;font-weight:800;word-break:keep-all}
+.news .date{font-size:19px;color:#555;line-height:1.5}
+.scores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.score{padding:20px 0;border-top:1px solid var(--line)}
+.score span{display:block;font-size:22px;color:var(--muted)}
+.score b{display:block;margin-top:16px;font-size:80px;color:var(--lime);letter-spacing:-.06em;line-height:1.1}
+.score small{font-size:26px;color:var(--muted)}
+.exam-comparison{align-items:center}
+.comparebox{border-top:2px solid var(--line);padding:30px 0;display:flex;flex-direction:column;gap:22px;min-width:0}
+.comparebox .when{font-size:24px;color:var(--muted)}
+.comparebox .main{font-size:42px;line-height:1.3;font-weight:800;letter-spacing:-.035em}
+.comparebox .scores{grid-template-columns:repeat(3,minmax(0,1fr))}
+.comparebox .score b{font-size:58px}
+.comparebox .score{min-height:170px}
+.comparebox .note{font-size:20px}
+.modality-list{display:flex;flex-wrap:wrap;gap:12px;font-size:24px;line-height:1.6}
+.modality-list span{border-bottom:1px solid var(--line);padding:8px 0;width:45%}
+.exam-stats{display:flex;flex-direction:column;gap:32px}
+.stat .lab{font-size:20px;color:var(--muted)}
+.stat .n{margin:12px 0;font-size:66px;color:var(--lime);font-weight:850;line-height:1.1}
+.stat .d{font-size:21px;line-height:1.5;color:#c5cdd9}
+.video-stage{display:flex;align-items:center;justify-content:center}
+.video-player{width:100%;max-width:1120px;aspect-ratio:16/9;border:1px solid var(--line);border-radius:14px;background:#000}
+.video-nav{display:flex;gap:16px;align-items:center}
+.video-nav button{font:inherit;color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:6px;padding:7px 12px;cursor:pointer}
+.video3{align-items:center}
+.video3 .media{height:450px}
+.video3 figcaption{font-size:20px;line-height:1.6}
+.video3 figcaption b{display:block;font-size:30px;color:var(--fg)}
+.medal{display:flex;flex-direction:column;justify-content:center;padding:28px 36px;border-left:1px solid var(--line);gap:22px}
+.medal .when{font-size:32px;color:var(--muted)}
+.medal .main{font-size:66px;font-weight:850;line-height:1.2}
+.medal .result{font-size:100px;font-weight:900;line-height:1.1;letter-spacing:-.05em}
+.medal.silver .result{color:#d1d9e5}.medal.gold .result{color:#e3ff5f}
+.medal .detail{font-size:25px;line-height:1.5;color:#c5cdd9}
+.event-log{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 70px;align-content:center}
+.event-row{display:grid;grid-template-columns:135px 1fr;align-items:center;gap:22px;padding:27px 0;border-top:1px solid var(--line);font-size:27px;line-height:1.4}
+.event-row time{color:var(--lime);font-size:32px;font-weight:800}
+.progress{position:absolute;left:0;bottom:0;height:4px;z-index:2;background:linear-gradient(90deg,var(--lime),var(--blue));width:0}
+
+.gif-gallery{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:22px 26px}
+.gif-gallery .viewport{border-radius:10px;background:#000}
+.gif-gallery figcaption{font-size:21px;color:var(--fg)}
+.gif-gallery figcaption span{color:var(--muted);margin-left:12px;font-size:17px}
+.release-charts{gap:56px;align-items:start;padding-top:8px}
+.release-chart{--series:var(--lime);min-width:0}
+.release-chart.opus{--series:#9aaaff}
+.release-chart h3{font-size:30px;color:var(--series);margin:0 0 22px;letter-spacing:-.02em}
+.release-axis,.release-row{display:grid;grid-template-columns:174px minmax(0,1fr) 96px;gap:16px;align-items:center}
+.release-axis{height:42px;font-size:17px;color:var(--muted)}
+.release-axis .ticks{position:relative;height:100%;border-bottom:1px solid var(--line)}
+.release-axis .ticks span{position:absolute;left:var(--at);transform:translateX(-50%);top:0}
+.release-row{height:43px;border-bottom:1px solid rgba(255,255,255,.045);font-size:22px}
+.release-row .plot{position:relative;height:100%;background:repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 25%)}
+.release-row .plot::before{content:'';position:absolute;left:0;top:50%;width:var(--at);height:1px;background:var(--series);opacity:.3}
+.release-row .dot{position:absolute;left:var(--at);top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:var(--series)}
+.release-row time{font-size:18px;font-variant-numeric:tabular-nums;color:#c5cdd9;text-align:right}
+.release-row a{color:inherit;text-decoration:none}
+.release-row a:hover{text-decoration:underline}
+.video-notice{max-width:1120px;width:100%;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;border:1px solid var(--line);border-radius:14px;background:#11151c;text-align:center}
+.video-notice[hidden]{display:none}
+.video-notice p{font-size:26px;line-height:1.6;margin:0;color:var(--muted)}
+.video-notice a{color:var(--lime);font-size:28px}
+.video-player[hidden]{display:none}
+
+/* Chapter 2: source imagery and factual event descriptions. */
+.question .year{font-size:58px}
+.question .key{font-size:34px}
+.question .note{font-size:23px;line-height:1.55}
+.question .wide-evidence{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) 172px;gap:30px}
+.fact-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.fact-strip>div{border-top:1px solid var(--line);padding-top:18px}
+.fact-strip b{display:block;font-size:29px;line-height:1.2;color:var(--lime);margin-bottom:12px}
+.fact-strip p{margin:0;font-size:23px;line-height:1.45;color:#c5cdd9;word-break:keep-all}
+.question .status{font-size:19px;line-height:1.5;color:var(--muted);margin:0}
+
+/* Chapters 3–4: source charts, work comparisons and discussion prompts. */
+.engineer .year{font-size:66px}.engineer .key{font-size:34px}
+.engineer .status{margin:0;font-size:20px;line-height:1.5;color:var(--muted);word-break:keep-all}
+.exposure-visual{display:flex;flex-direction:column;justify-content:center;gap:30px;padding:10px 30px;align-items:center}
+.exposure-dots{display:grid;grid-template-columns:repeat(10,1fr);gap:12px;width:520px;max-width:100%}
+.exposure-dots span{display:block;aspect-ratio:1;border-radius:50%;background:#2c3341}
+.exposure-dots .exposed{background:var(--lime)}
+.exposure-legend{font-size:20px;color:var(--muted)}
+.exposure-legend i{display:inline-block;width:15px;height:15px;border-radius:50%;background:var(--lime);margin-right:10px}
+.discussion-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px;align-content:center}
+.discussion-columns article{min-width:0;border-top:2px solid var(--line);padding-top:30px}
+.discussion-columns .eyebrow{font-size:18px;letter-spacing:.12em;color:var(--muted)}
+.discussion-columns h3{font-size:48px;letter-spacing:-.045em;line-height:1.25;margin:22px 0 30px;font-weight:800;color:var(--lime)}
+.discussion-columns p{font-size:28px;line-height:1.65;margin:0;color:#c5cdd9;word-break:keep-all}
+.discussion-columns .prompt{margin-top:36px;font-size:29px;color:var(--fg)}
+.work-comparison{width:100%;border-collapse:collapse;align-self:center;table-layout:fixed;font-size:25px}
+.work-comparison th,.work-comparison td{text-align:left;padding:22px 28px;border-bottom:1px solid var(--line);line-height:1.35;word-break:keep-all}
+.work-comparison thead th{font-size:34px;color:var(--lime);padding-top:0;padding-bottom:26px}
+.work-comparison thead th:first-child{width:190px;color:var(--muted);font-size:21px}
+.work-comparison tbody th{font-size:25px;color:var(--muted);font-weight:500}
+.work-comparison small{display:block;font-size:18px;font-weight:400;color:var(--muted);margin-top:10px}
+.work-comparison .ai-task{color:var(--lime)}
+.prompt-stage{display:flex;flex-direction:column;justify-content:center;gap:48px}
+.scenario{font-size:44px;line-height:1.5;letter-spacing:-.025em;word-break:keep-all;max-width:1230px;margin:0}
+.scenario-label{font-size:18px;letter-spacing:.15em;color:var(--muted);margin-bottom:20px}
+.prompt-lines{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:38px}
+.prompt-lines p{border-top:1px solid var(--line);padding-top:24px;margin:0;font-size:29px;line-height:1.55;word-break:keep-all}
+.prompt-lines b{display:block;font-size:19px;color:var(--lime);margin-bottom:15px}
+.choice .titleblock{padding-bottom:20px}
+.choice .discussion-columns h3{font-size:54px}
+.choice .discussion-columns .prompt{font-size:31px}
+.choice-bottom{margin-top:50px;border-top:1px solid var(--line);padding-top:26px;font-size:27px;color:var(--muted)}
+
+/* Examples adapted from the companion newbie lecture. */
+.choice .year{font-size:60px}.choice .key{font-size:34px}.choice .status{font-size:21px;line-height:1.5;color:var(--muted);margin:0;word-break:keep-all}
+.calculation{align-self:center;width:100%}.equation{font-size:76px;font-weight:750;letter-spacing:-.03em;line-height:1.4;margin:22px 0 40px}.equation span{color:var(--lime)}
+.unit-detail{display:grid;grid-template-columns:1fr 1fr;gap:60px}.unit-detail p{border-top:1px solid var(--line);padding-top:22px;font-size:30px;line-height:1.6;margin:0}.unit-detail b{display:block;font-size:20px;color:var(--muted);margin-bottom:14px}.unit-question{font-size:32px;margin:40px 0 0}
+.request-pair{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-self:center}.request-pair article{border-top:2px solid var(--line);padding-top:28px}.request-pair h3{font-size:42px;color:var(--lime);margin:24px 0 30px}.request-pair blockquote{font-size:33px;line-height:1.65;letter-spacing:-.02em;margin:0;word-break:keep-all}
+.task-breakdown .work-comparison th,.task-breakdown .work-comparison td{padding:19px 24px}.task-breakdown .work-comparison thead th{font-size:31px;padding-bottom:24px}.task-breakdown .work-comparison thead th:first-child{font-size:21px;width:175px}
+
+.choice-stat{align-self:center;padding:20px 40px 20px 0}.choice-stat-number{font-size:112px;line-height:1.2;font-weight:800;letter-spacing:-.06em;color:var(--lime);margin:32px 0}.choice-stat>p{font-size:42px;margin:0}.choice-stat-detail{font-size:23px;color:var(--muted);line-height:1.65;margin-top:50px}
+.technique-table{align-self:center;width:100%;border-collapse:collapse;table-layout:fixed;font-size:27px;line-height:1.5}.technique-table th,.technique-table td{text-align:left;padding:25px 22px;border-bottom:1px solid var(--line);word-break:keep-all}.technique-table thead th{font-size:20px;color:var(--muted);font-weight:500}.technique-table th:first-child{width:31%}.technique-table tbody th{font-size:29px;color:var(--lime);font-weight:650}.technique-table th:nth-child(2){width:36%}
+
+/* THE ENGINEER: jobs, tasks and programming abstractions. */
+.job-question,.task-map,.software-eras{display:flex;flex-direction:column;justify-content:space-evenly;gap:28px}
+.occupation-list{font-size:42px;line-height:1.8;font-weight:700;letter-spacing:-.025em}
+.job-evidence{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;border-top:1px solid var(--line);padding-top:28px}
+.job-evidence p{font-size:30px;line-height:1.6;margin:12px 0}.job-method{font-size:20px;color:var(--muted)}
+.engineer-question{font-size:36px;line-height:1.4;color:var(--lime);margin:8px 0}
+.task-words{display:flex;flex-wrap:wrap;gap:26px 44px;align-content:center;padding:20px 0}
+.task-words span{font-size:40px;line-height:1.5;border-bottom:1px solid var(--line)}
+.question-shift{display:grid;grid-template-columns:1fr 70px 1.6fr;align-items:center;border-top:1px solid var(--line);padding-top:22px;gap:24px}
+.question-shift p{font-size:38px;line-height:1.5;margin:0}.question-shift p:first-child{color:var(--muted)}.question-shift p:last-child{color:var(--lime)}.question-shift>span{font-size:48px}
+.abstraction-path{display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:28px;padding-top:26px;flex:none}.abstraction-path b{color:var(--muted)}.abstraction-path span:last-child{color:var(--lime)}
+.software-columns{display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr;align-items:center;gap:25px}
+.software-columns>div{border-top:2px solid var(--line);padding-top:24px}.software-columns span{font-size:20px;color:var(--muted);letter-spacing:.08em}.software-columns h3{font-size:56px;color:var(--lime);margin:18px 0}.software-columns p{font-size:25px;line-height:1.4;margin:0}.software-columns>b{font-size:38px;color:var(--muted)}
+.karpathy-summary{border-top:1px solid var(--line);padding-top:24px}.karpathy-summary p{font-size:34px;line-height:1.5;margin:0 0 16px}.karpathy-summary span{font-size:19px;color:var(--muted)}
+
+/* Compact THE CHOICE: learning, oversight and thinking partnership. */
+.growth-stage{grid-template-rows:225px minmax(0,1fr);gap:25px}.rookie-comparison{display:grid;grid-template-columns:1fr 1fr;gap:50px}.rookie-comparison>div{border-top:2px solid var(--line);padding:18px 0}.rookie-comparison span{font-size:23px;color:var(--muted)}.rookie-comparison strong{font-size:80px;line-height:1.15;color:var(--lime);display:block;margin:7px 0}.rookie-comparison p{font-size:29px;margin:0}
+.gps-reflection{display:grid;grid-template-columns:1fr 1.7fr;gap:44px;min-height:0}.gps-reflection>div{align-self:center}.gps-reflection h3{font-size:37px;margin:0 0 20px;color:var(--lime)}.gps-reflection p{font-size:28px;line-height:1.5;margin:12px 0}
+.team-stage,.partner-stage{display:flex;flex-direction:column;justify-content:space-evenly;gap:28px}.team-transition{display:flex;align-items:center;gap:40px;font-size:38px}.team-transition>span{color:var(--muted)}.team-transition strong{color:var(--lime);font-weight:700}.engineer-team h3{font-size:37px;margin:0 0 25px}.agent-roles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px}.agent-roles p{font-size:27px;margin:0;border-top:1px solid var(--line);padding-top:20px}.agent-roles small{display:block;font-size:19px;color:var(--muted);margin-top:8px}.oversight-questions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px;border-top:1px solid var(--line);padding-top:28px}.oversight-questions b{font-size:22px;color:var(--lime);letter-spacing:.025em}.oversight-questions p{font-size:28px;line-height:1.5;margin:16px 0 0}
+.partner-comparison{display:grid;grid-template-columns:1fr 1.25fr;gap:55px}.partner-comparison>div{border-top:2px solid var(--line);padding-top:23px}.partner-comparison span{font-size:22px;color:var(--muted)}.partner-comparison h3{font-size:38px;line-height:1.3;margin:24px 0}.partner-comparison p{font-size:25px;color:#c5cdd9;margin:0}.five-year-question{font-size:34px;margin:0}.methods-reminder{border-top:1px solid var(--line);padding-top:22px}.methods-reminder>span{font-size:18px;color:var(--muted)}.methods-reminder p{font-size:23px;line-height:1.5;margin:10px 0 0}.final-value-question{font-size:36px;line-height:1.4;color:var(--lime);margin:0}
+
+.go-return{grid-template-rows:minmax(0,1fr) auto auto;gap:25px}.go-history-images{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;min-height:0}.go-use-cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.go-use-cases>div{border-top:1px solid var(--line);padding-top:18px}.go-use-cases h3{font-size:26px;color:var(--lime);margin:0 0 12px}.go-use-cases p{font-size:23px;line-height:1.5;margin:0}.go-question{font-size:30px;line-height:1.4;margin:0;color:var(--lime)}
+
+.go-analysis-stage{grid-template-rows:minmax(0,1fr) auto;gap:24px}.go-analysis-main{display:grid;grid-template-columns:2.25fr 1fr;gap:30px;min-height:0}.go-analysis-side{display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:0}.go-history-mini{height:138px;display:grid;grid-template-columns:1fr 1fr;gap:15px;flex:none}.go-history-mini figcaption{font-size:15px}.go-analysis-readout h3{font-size:24px;color:var(--lime);margin:0 0 22px}.go-analysis-readout p{font-size:22px;line-height:1.5;margin:16px 0}.go-analysis-readout b{font-size:18px;display:block;color:var(--muted);margin-bottom:5px}.go-analysis-context{font-size:22px;line-height:1.5;margin:0;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<main class="deck" aria-label="AI 강의 · THE SPEED / THE QUESTION / THE ENGINEER / THE CHOICE">
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<section class="slide cover active"><h1>THE SPEED</h1></section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">EVENTS · 1997–2026</div><div class="page"></div></div>
+  <div class="titleblock"><h2>주요 사건 연표</h2></div>
+  <div class="stage one"><div class="timeline"><div class="t"><b>1997</b><span>Deep Blue<br>카스파로프 대국</span></div><div class="t"><b>2011</b><span>IBM Watson<br>Jeopardy!</span></div><div class="t"><b>2016</b><span>AlphaGo<br>이세돌 대국</span></div><div class="t"><b>2018</b><span>수능 문제 풀이<br>언론 실험</span></div><div class="t"><b>2022</b><span>Midjourney<br>ChatGPT</span></div><div class="t"><b>2023</b><span>Gemini<br>전문직 시험 연구</span></div><div class="t"><b>2024</b><span>Sora<br>IMO 은메달 수준</span></div><div class="t"><b>2025–26</b><span>Veo · Higgsfield<br>IMO 금메달 수준</span></div></div></div>
+  <div class="footer"><div class="source"></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">1997 · NEW YORK</div><div class="page"></div></div>
+  <div class="titleblock"><h2>Deep Blue vs. Garry Kasparov</h2></div>
+  <div class="stage photo-left"><figure class="media  "><div class="viewport"><img src="assets/images/deep-blue-kasparov.jpg" alt="1997년 Deep Blue와 대국 중인 가리 카스파로프"></div><figcaption>1997.05.11 · 뉴욕 · 제6국</figcaption></figure><div class="side"><div class="year">3½–2½</div><div class="key">IBM Deep Blue<br>가리 카스파로프</div><p class="note">6번의 대국으로 진행된 재대결<br>Deep Blue 2승 · 3무 · 1패</p></div></div>
+  <div class="footer"><div class="source">Image: Rare Historical Photos / archive. Match record: IBM History.</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2011 · JEOPARDY!</div><div class="page"></div></div>
+  <div class="titleblock"><h2>IBM Watson의 퀴즈쇼 출전</h2></div>
+  <div class="stage photo-right"><div class="side"><div class="year">2011</div><div class="key">Watson · Ken Jennings<br>Brad Rutter</div><p class="note">미국 퀴즈쇼 Jeopardy! 특별 대결<br>자연어 단서를 읽고 정답을 제시</p></div><figure class="media  "><div class="viewport"><img src="assets/images/watson-jeopardy.jpg" alt="왓슨과 켄 제닝스, 브래드 러터의 Jeopardy 대결"></div><figcaption>2011.02 · Jeopardy!</figcaption></figure></div>
+  <div class="footer"><div class="source">Image: AP / CBS News. Event: IBM History, Watson Jeopardy challenge.</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2016 · SEOUL</div><div class="page"></div></div>
+  <div class="titleblock"><h2>AlphaGo vs. 이세돌</h2></div>
+  <div class="stage photo-left"><figure class="media  "><div class="viewport"><img src="assets/images/alphago-lee-sedol.jpg" alt="서울에서 진행된 알파고와 이세돌 대국"></div><figcaption>Google DeepMind Challenge Match · 서울 포시즌스 호텔</figcaption></figure><div class="side"><div class="year">4–1</div><div class="key">이세돌 9단<br>AlphaGo Lee</div><p class="note">2016.03.09–03.15 · 총 5국<br>AlphaGo 4승 · 이세돌 1승</p></div></div>
+  <div class="footer"><div class="source"><a href="https://deepmind.google/research/alphago/" target="_blank" rel="noopener noreferrer">Google DeepMind — AlphaGo</a> · Image: 2016 Challenge Match.</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2016 · GAME 2 · MOVE 37</div><div class="page"></div></div>
+  <div class="titleblock"><h2>제2국 · AlphaGo 37수</h2></div>
+  <div class="stage moves"><figure class="media  board"><div class="viewport"><img src="assets/images/alphago-37-marked.jpg" alt="제2국 AlphaGo 37수 위치"></div><figcaption>빨간 원: AlphaGo가 둔 흑 37수</figcaption></figure><div class="move-context"><figure class="media  "><div class="viewport"><img src="assets/images/alphago-37-broadcast.jpg" alt="제2국 37수 착수 중계 화면"></div><figcaption>2016.03.10 · 제2국 중계 화면</figcaption></figure><div class="move-meta"><div class="move-number">37</div><p>AlphaGo<br>흑 · P10<br>AlphaGo 불계승</p></div></div></div>
+  <div class="footer"><div class="source"><a href="https://v.daum.net/v/20260312000506849" target="_blank" rel="noopener noreferrer">37수 화면: 중앙일보</a> · <a href="https://gomagic.org/the-story-of-alphago-how-ai-conquered-the-hardest-board-game/" target="_blank" rel="noopener noreferrer">중계 캡처: Go Magic / AlphaGo Documentary</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2016 · GAME 4 · MOVE 78</div><div class="page"></div></div>
+  <div class="titleblock"><h2>제4국 · 이세돌 78수</h2></div>
+  <div class="stage moves"><figure class="media  board"><div class="viewport"><img src="assets/images/lee-sedol-divine-78.jpg" alt="제4국 이세돌 78수 위치"></div><figcaption>숫자 78: 이세돌이 둔 백 78수</figcaption></figure><div class="move-context"><figure class="media  "><div class="viewport"><img src="assets/images/lee-sedol-78-broadcast.jpg" alt="제4국 78수 착수 중계 화면"></div><figcaption>2016.03.13 · 제4국 중계 화면</figcaption></figure><div class="move-meta"><div class="move-number">78</div><p>이세돌<br>백 · L11<br>이세돌 불계승</p></div></div></div>
+  <div class="footer"><div class="source"><a href="https://commons.wikimedia.org/wiki/File:Lee-sedol-alphago-divine-move.jpg" target="_blank" rel="noopener noreferrer">기보: Axd / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> · <a href="https://gomagic.org/the-story-of-alphago-how-ai-conquered-the-hardest-board-game/" target="_blank" rel="noopener noreferrer">중계 캡처: Go Magic / AlphaGo Documentary</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">CHESS · UNIVERSE · GO</div><div class="page"></div></div>
+  <div class="titleblock"><h2>체스 · 우주 · 바둑</h2></div>
+  <div class="stage triptych"><div class="comparison"><h3>체스</h3><figure class="media  "><div class="viewport"><img src="assets/images/chess-board.jpg" alt="체스판과 기물의 시작 배치"></div><figcaption>체스판 · 8 × 8</figcaption></figure><div class="value">10<sup>44–50</sup></div><p class="descriptor">가능한 포지션 수 추정</p></div><div class="comparison"><h3>우주</h3><figure class="media  "><div class="viewport"><img src="assets/images/universe-webb.png" alt="제임스 웹 우주망원경이 촬영한 SMACS 0723 은하단"></div><figcaption>Webb’s First Deep Field · SMACS 0723</figcaption></figure><div class="value">10<sup>80</sup></div><p class="descriptor">관측 가능한 우주의 원자 수 추정</p></div><div class="comparison"><h3>바둑</h3><figure class="media  "><div class="viewport"><img src="assets/images/go-board.jpg" alt="바둑판 위의 흑돌과 백돌"></div><figcaption>바둑판 · 19 × 19</figcaption></figure><div class="value">10<sup>170</sup></div><p class="descriptor">가능한 보드 상태 수 추정</p></div></div>
+  <div class="footer"><div class="source">규모의 근삿값이며 정의·계산 방식에 따라 다름. 우주 사진은 SMACS 0723 은하단의 일부 영역.<br>Images: <a href="https://commons.wikimedia.org/wiki/File:ChessStartingPosition.jpg" target="_blank" rel="noopener noreferrer">Bubba73 / CC BY-SA 3.0</a> · NASA, ESA, CSA, STScI · <a href="https://commons.wikimedia.org/wiki/File:Go_board.jpg" target="_blank" rel="noopener noreferrer">Donarreiskoffer</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">ALPHAGO · 2016–2017</div><div class="page"></div></div>
+  <div class="titleblock"><h2>AlphaGo Lee · Master · Zero</h2></div>
+  <div class="stage triptych evolution"><div class="evo"><div class="when">2016.03</div><h3>AlphaGo Lee</h3><figure class="media  "><div class="viewport"><img src="assets/images/alphago-lee-official.webp" alt="이세돌과 AlphaGo 대국 공식 사진"></div><figcaption>서울 · 이세돌 대국</figcaption></figure><p><strong>4–1</strong></p><p class="detail">인간 기보 + 자기대국 학습<br>이세돌과 5번의 대국</p></div><div class="evo"><div class="when">2017.05</div><h3>AlphaGo Master</h3><figure class="media  "><div class="viewport"><img src="assets/images/alphago-master-ke-jie.jpg" alt="2017년 바둑의 미래 서밋에 참가한 커제"></div><figcaption>우전 · 커제 대국 행사</figcaption></figure><p><strong>3–0</strong></p><p class="detail">당시 세계 랭킹 1위 커제와<br>3번의 대국</p></div><div class="evo"><div class="when">2017.10</div><h3>AlphaGo Zero</h3><figure class="media light "><div class="viewport"><img src="assets/images/alphago-zero-ratings.jpg" alt="DeepMind가 공개한 AlphaGo 버전별 Elo 비교 그래프"></div><figcaption>DeepMind 공개 성능 비교 자료</figcaption></figure><p><strong>100–0</strong></p><p class="detail">인간 기보 없이 자기대국 학습<br>3일 학습 후 Lee 버전과의 전적</p></div></div>
+  <div class="footer"><div class="source">Photos: <a href="https://blog.google/innovation-and-ai/products/alphagos-ultimate-challenge/" target="_blank" rel="noopener noreferrer">Google — 이세돌 대국</a> · <a href="https://deepmind.google/blog/alphagos-next-move/" target="_blank" rel="noopener noreferrer">DeepMind — 커제 대국</a> · Chart & results: <a href="https://deepmind.google/blog/alphago-zero-starting-from-scratch/" target="_blank" rel="noopener noreferrer">DeepMind — AlphaGo Zero (2017)</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2018 · KOREAN CSAT</div><div class="page"></div></div>
+  <div class="titleblock"><h2>2018년, AI의 수능 문제 풀이</h2></div>
+  <div class="stage equal"><div class="news"><div class="paper">서울경제 · 2018.11.16</div><div class="headline">AI ‘2019 수능’ 풀었다…<br>영어 12점·수학 16점</div><div class="date">기사 제목 발췌 · 텍스트 재구성</div></div><div class="side"><div class="scores"><div class="score"><span>영어</span><b>12<small>점</small></b></div><div class="score"><span>수학</span><b>16<small>점</small></b></div></div><p class="note">영어: AllenNLP<br>수학: Wolfram Alpha<br>2019학년도 수능 문제 대상 실험</p></div></div>
+  <div class="footer"><div class="source">서울경제, “AI '2019 수능' 풀었다…영어 12점·수학 16점”, 2018.11.16.</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2018 / 2025–2026</div><div class="page"></div></div>
+  <div class="titleblock"><h2>수능 문제 풀이 실험 기록</h2><p class="sub">서로 다른 모델·문항·실험 조건의 보도 사례</p></div>
+  <div class="stage equal exam-comparison"><div class="comparebox"><div class="when">2018</div><div class="main">2019학년도 수능</div><div class="scores"><div class="score"><span>국어</span><b>—</b></div><div class="score"><span>영어</span><b>12</b></div><div class="score"><span>수학</span><b>16</b></div></div><p class="note">영어 AllenNLP · 수학 Wolfram Alpha</p></div><div class="comparebox"><div class="when">2025–2026</div><div class="main">수능·수능형 문제 실험</div><div class="scores"><div class="score"><span>국어</span><b>95</b></div><div class="score"><span>영어</span><b>92</b></div><div class="score"><span>수학</span><b>82–96</b></div></div><p class="note">모델·과목·실험별 보도 점수</p></div></div>
+  <div class="footer"><div class="source">2025 GPT-5 수능 모의풀이 및 2026학년도 수능 실험 보도. 서로 다른 모델·문항·실험 조건의 점수.</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2022 · COLORADO STATE FAIR</div><div class="page"></div></div>
+  <div class="titleblock"><h2>Théâtre D’opéra Spatial</h2></div>
+  <div class="stage photo-left"><figure class="media  "><div class="viewport"><img src="assets/images/midjourney-theatre.jpg" alt="제이슨 앨런의 작품 Théâtre D’opéra Spatial"></div><figcaption>Jason M. Allen · Théâtre D’opéra Spatial</figcaption></figure><div class="side"><div class="year">2022</div><div class="key">Jason M. Allen<br>Midjourney 활용 작품</div><p class="note">Colorado State Fair<br>디지털 아트 부문 1위</p></div></div>
+  <div class="footer"><div class="source">Image: Jason M. Allen / Wikimedia Commons. Event: Colorado State Fair, 2022.</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2022.11.30 · OPENAI</div><div class="page"></div></div>
+  <div class="titleblock"><h2>ChatGPT 공개</h2></div>
+  <div class="stage photo-right"><div class="side"><div class="year">2022.11</div><div class="key">대화형 AI 서비스<br>ChatGPT</div><p class="note">질문에 대한 응답 생성<br>글쓰기 · 요약 · 코드 작성</p></div><figure class="media light "><div class="viewport"><img src="assets/images/chatgpt-launch.jpg" alt="OpenAI의 Introducing ChatGPT 공개 페이지"></div><figcaption>OpenAI · Introducing ChatGPT</figcaption></figure></div>
+  <div class="footer"><div class="source">Image: OpenAI ChatGPT introduction-page capture.</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2023.12 · GOOGLE</div><div class="page"></div></div>
+  <div class="titleblock"><h2>Gemini 1.0 공개</h2></div>
+  <div class="stage photo-left"><figure class="media  "><div class="viewport"><img src="assets/images/gemini-multimodal.png" alt="Google Gemini의 멀티모달 입력 예시"></div><figcaption>Google Gemini · 발표 자료</figcaption></figure><div class="side"><div class="key">멀티모달 모델</div><div class="modality-list"><span>텍스트</span><span>이미지</span><span>오디오</span><span>영상</span><span>코드</span></div><p class="note">서로 다른 형태의 정보를<br>함께 처리하도록 설계</p></div></div>
+  <div class="footer"><div class="source">Image: Google Gemini promotional visual. Source: Google Gemini 1.0 announcement.</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2023 · PROFESSIONAL EXAMS</div><div class="page"></div></div>
+  <div class="titleblock"><h2>변호사·의사 시험 문항 평가</h2></div>
+  <div class="stage photo-right"><div class="side exam-stats"><div class="stat"><div class="lab">모의 미국 변호사시험</div><div class="n">Top 10%</div><div class="d">GPT-4 · 응시자 상위 약 10% 수준</div></div><div class="stat"><div class="lab">USMLE 문항 연구</div><div class="n">합격선 전후</div><div class="d">ChatGPT · 미국 의사면허시험 문항<br>연구별 평가 조건 상이</div></div></div><figure class="media  "><div class="viewport"><img src="assets/images/professional-exams.jpg" alt="노트북 화면에 표시된 ChatGPT 소개 페이지"></div><figcaption>ChatGPT 관련 보도 사진 · 시험 현장 사진 아님</figcaption></figure></div>
+  <div class="footer"><div class="source">Sources: OpenAI GPT-4 research page; PLOS Digital Health USMLE study (2023). Image: RTVE.</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">AI VIDEO · WILL SMITH</div><div class="page"></div></div>
+  <div class="titleblock"><h2>Will Smith eating spaghetti</h2></div>
+  <div class="stage video-stage"><iframe class="video-player" data-src="https://www.youtube.com/embed/g_31_Kj0-NE?playsinline=1&amp;rel=0" title="Will Smith eating spaghetti — YouTube 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="video-notice" hidden><p>영상은 웹 주소로 열었을 때 재생됩니다.<br>폴더의 ‘슬라이드 열기.command’를 실행해 주세요.</p><a href="http://127.0.0.1:8765/index.html#slide-16">로컬 웹 주소에서 16페이지 열기 ↗</a></div></div>
+  <div class="footer"><div class="source"><a href="https://www.youtube.com/watch?v=g_31_Kj0-NE" target="_blank" rel="noopener noreferrer">YouTube에서 영상 열기 ↗</a></div><div class="nav video-nav"><button type="button" data-slide-step="-1" aria-label="이전 슬라이드">← 이전</button><button type="button" data-slide-step="1" aria-label="다음 슬라이드">다음 →</button></div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2024–2026 · AI VIDEO</div><div class="page"></div></div>
+  <div class="titleblock"><h2>Sora · Veo 3 · Higgsfield</h2></div>
+  <div class="stage video-stage"><iframe class="video-player" data-src="https://www.youtube.com/embed/9nVEfjmDlVk?playsinline=1&amp;rel=0" title="Sora · Veo 3 · Higgsfield — YouTube 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="video-notice" hidden><p>영상은 웹 주소로 열었을 때 재생됩니다.<br>폴더의 ‘슬라이드 열기.command’를 실행해 주세요.</p><a href="http://127.0.0.1:8765/index.html#slide-17">로컬 웹 주소에서 17페이지 열기 ↗</a></div></div>
+  <div class="footer"><div class="source"><a href="https://www.youtube.com/watch?v=9nVEfjmDlVk" target="_blank" rel="noopener noreferrer">YouTube에서 영상 열기 ↗</a></div><div class="nav video-nav"><button type="button" data-slide-step="-1" aria-label="이전 슬라이드">← 이전</button><button type="button" data-slide-step="1" aria-label="다음 슬라이드">다음 →</button></div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">HIGGSFIELD · CINEMA STUDIO 4.0</div><div class="page"></div></div>
+  <div class="titleblock"><h2>Higgsfield 영상 사례</h2></div>
+  <div class="stage gif-gallery"><figure class="media"><div class="viewport"><img src="assets/gifs/higgsfield-epic.gif" alt="Higgsfield Cinema Studio Epic 공식 영상 예시" loading="lazy"></div><figcaption>Epic<span>판타지 장면</span></figcaption></figure><figure class="media"><div class="viewport"><img src="assets/gifs/higgsfield-drama.gif" alt="Higgsfield Cinema Studio Drama 공식 영상 예시" loading="lazy"></div><figcaption>Drama<span>병실의 두 인물</span></figcaption></figure><figure class="media"><div class="viewport"><img src="assets/gifs/higgsfield-noir.gif" alt="Higgsfield Cinema Studio Noir 공식 영상 예시" loading="lazy"></div><figcaption>Noir<span>흑백 계단 장면</span></figcaption></figure><figure class="media"><div class="viewport"><img src="assets/gifs/higgsfield-comedy.gif" alt="Higgsfield Cinema Studio Comedy 공식 영상 예시" loading="lazy"></div><figcaption>Comedy<span>결혼식 장면</span></figcaption></figure><figure class="media"><div class="viewport"><img src="assets/gifs/higgsfield-action.gif" alt="Higgsfield Cinema Studio Action 공식 영상 예시" loading="lazy"></div><figcaption>Action<span>대나무 숲 대결</span></figcaption></figure><figure class="media"><div class="viewport"><img src="assets/gifs/higgsfield-general.gif" alt="Higgsfield Cinema Studio General 공식 영상 예시" loading="lazy"></div><figcaption>General<span>추상 애니메이션</span></figcaption></figure></div>
+  <div class="footer"><div class="source"><a href="https://higgsfield.ai/cinematic-video-generator" target="_blank" rel="noopener noreferrer">Higgsfield Cinema Studio 공식 장르별 영상</a> · 2026.09.16 수집 · 각 영상의 첫 5–6초 · 무음 반복</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">2024 / 2025 · IMO</div><div class="page"></div></div>
+  <div class="titleblock"><h2>국제수학올림피아드 문제 풀이</h2></div>
+  <div class="stage equal"><div class="medal silver"><div class="when">2024</div><div class="main">은메달 수준</div><div class="result">28 / 42</div><div class="detail">AlphaProof + AlphaGeometry 2<br>IMO 문제 풀이 평가</div></div><div class="medal gold"><div class="when">2025</div><div class="main">금메달 수준</div><div class="result">35 / 42</div><div class="detail">Gemini Deep Think<br>IMO 문제 풀이 평가</div></div></div>
+  <div class="footer"><div class="source">Google DeepMind, IMO silver-medal-level result (2024) and gold-medal-standard result (2025). 모델·평가 방식이 서로 다름.</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">EVENT INDEX</div><div class="page"></div></div>
+  <div class="titleblock"><h2>사건 목록 · 1997–2026</h2></div>
+  <div class="stage one"><div class="event-log"><div class="event-row"><time>1997</time><span>Deep Blue · 카스파로프 대국</span></div><div class="event-row"><time>2022</time><span>Midjourney 수상작 · ChatGPT</span></div><div class="event-row"><time>2011</time><span>Watson · Jeopardy! 출전</span></div><div class="event-row"><time>2023</time><span>Gemini · 전문직 시험 문항 평가</span></div><div class="event-row"><time>2016</time><span>AlphaGo · 이세돌 대국</span></div><div class="event-row"><time>2024</time><span>Sora · IMO 은메달 수준</span></div><div class="event-row"><time>2017</time><span>AlphaGo Master · Zero</span></div><div class="event-row"><time>2025–26</time><span>Veo · Higgsfield · IMO 금메달 수준</span></div></div></div>
+  <div class="footer"><div class="source"></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="kicker">MODEL RELEASES · 2022–2026</div><div class="page"></div></div>
+  <div class="titleblock"><h2>ChatGPT · Claude Opus 출시 연표</h2><p class="sub">주요 GPT 계열 · Opus 계열의 공개 시기</p></div>
+  <div class="stage equal release-charts"><div class="release-chart "><h3>ChatGPT · GPT 계열</h3><div class="release-axis"><span>모델</span><div class="ticks"><span style="--at:0%">2022.09</span><span style="--at:25%">2023.09</span><span style="--at:50%">2024.09</span><span style="--at:75%">2025.09</span><span style="--at:100%">2026.09</span></div><span style="text-align:right">출시 월</span></div><div class="release-row"><a href="https://openai.com/index/chatgpt/" target="_blank" rel="noopener noreferrer">GPT-3.5</a><div class="plot" style="--at:4.166667%" aria-hidden="true"><span class="dot"></span></div><time datetime="2022-11">2022.11</time></div><div class="release-row"><a href="https://openai.com/index/gpt-4-research/" target="_blank" rel="noopener noreferrer">GPT-4</a><div class="plot" style="--at:12.500000%" aria-hidden="true"><span class="dot"></span></div><time datetime="2023-03">2023.03</time></div><div class="release-row"><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">GPT-4o</a><div class="plot" style="--at:41.666667%" aria-hidden="true"><span class="dot"></span></div><time datetime="2024-05">2024.05</time></div><div class="release-row"><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">GPT-4.5</a><div class="plot" style="--at:60.416667%" aria-hidden="true"><span class="dot"></span></div><time datetime="2025-02">2025.02</time></div><div class="release-row"><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">GPT-5</a><div class="plot" style="--at:72.916667%" aria-hidden="true"><span class="dot"></span></div><time datetime="2025-08">2025.08</time></div><div class="release-row"><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">GPT-5.1</a><div class="plot" style="--at:79.166667%" aria-hidden="true"><span class="dot"></span></div><time datetime="2025-11">2025.11</time></div><div class="release-row"><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">GPT-5.2</a><div class="plot" style="--at:81.250000%" aria-hidden="true"><span class="dot"></span></div><time datetime="2025-12">2025.12</time></div><div class="release-row"><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">GPT-5.4</a><div class="plot" style="--at:87.500000%" aria-hidden="true"><span class="dot"></span></div><time datetime="2026-03">2026.03</time></div><div class="release-row"><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">GPT-5.5</a><div class="plot" style="--at:89.583333%" aria-hidden="true"><span class="dot"></span></div><time datetime="2026-04">2026.04</time></div><div class="release-row"><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">GPT-5.6</a><div class="plot" style="--at:95.833333%" aria-hidden="true"><span class="dot"></span></div><time datetime="2026-07">2026.07</time></div><div class="release-row"><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">GPT-6 Astra</a><div class="plot" style="--at:100.000000%" aria-hidden="true"><span class="dot"></span></div><time datetime="2026-09">2026.09</time></div></div><div class="release-chart opus"><h3>Claude · Opus 계열</h3><div class="release-axis"><span>모델</span><div class="ticks"><span style="--at:0%">2022.09</span><span style="--at:25%">2023.09</span><span style="--at:50%">2024.09</span><span style="--at:75%">2025.09</span><span style="--at:100%">2026.09</span></div><span style="text-align:right">출시 월</span></div><div class="release-row"><a href="https://www.anthropic.com/news/claude-3-family" target="_blank" rel="noopener noreferrer">Opus 3</a><div class="plot" style="--at:37.500000%" aria-hidden="true"><span class="dot"></span></div><time datetime="2024-03">2024.03</time></div><div class="release-row"><a href="https://www.anthropic.com/news/claude-4" target="_blank" rel="noopener noreferrer">Opus 4</a><div class="plot" style="--at:66.666667%" aria-hidden="true"><span class="dot"></span></div><time datetime="2025-05">2025.05</time></div><div class="release-row"><a href="https://www.anthropic.com/news/claude-opus-4-1" target="_blank" rel="noopener noreferrer">Opus 4.1</a><div class="plot" style="--at:72.916667%" aria-hidden="true"><span class="dot"></span></div><time datetime="2025-08">2025.08</time></div><div class="release-row"><a href="https://www.anthropic.com/news/claude-opus-4-5" target="_blank" rel="noopener noreferrer">Opus 4.5</a><div class="plot" style="--at:79.166667%" aria-hidden="true"><span class="dot"></span></div><time datetime="2025-11">2025.11</time></div><div class="release-row"><a href="https://www.anthropic.com/news/claude-opus-4-6" target="_blank" rel="noopener noreferrer">Opus 4.6</a><div class="plot" style="--at:85.416667%" aria-hidden="true"><span class="dot"></span></div><time datetime="2026-02">2026.02</time></div><div class="release-row"><a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noopener noreferrer">Opus 4.7</a><div class="plot" style="--at:89.583333%" aria-hidden="true"><span class="dot"></span></div><time datetime="2026-04">2026.04</time></div><div class="release-row"><a href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank" rel="noopener noreferrer">Opus 4.8</a><div class="plot" style="--at:91.666667%" aria-hidden="true"><span class="dot"></span></div><time datetime="2026-05">2026.05</time></div><div class="release-row"><a href="https://www.anthropic.com/news/claude-opus-5" target="_blank" rel="noopener noreferrer">Opus 5</a><div class="plot" style="--at:95.833333%" aria-hidden="true"><span class="dot"></span></div><time datetime="2026-07">2026.07</time></div></div></div>
+  <div class="footer"><div class="source">OpenAI · Anthropic 공식 발표 및 릴리스 기록 / 월 단위 · 2026.09.16 기준 / 주요 모델 선별, 세부 파생 모델 제외 · GPT-3.5는 ChatGPT 공개 월 / 모델명을 누르면 출처로 이동</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide cover"><h1>THE QUESTION</h1></section>
+
+<section class="slide question">
+  <div class="header"><div class="kicker">THE QUESTION · 2023 · FALSE IMAGE</div><div class="page"></div></div>
+  <div class="titleblock"><h2>펜타곤 폭발 허위 이미지</h2></div>
+  <div class="stage photo-left"><figure class="media"><div class="viewport"><img src="assets/images/question/pentagon-fake.jpg" alt="펜타곤 폭발로 잘못 유포된 검은 연기 이미지" loading="lazy"></div><figcaption>당시 유포된 허위 이미지 · AI 생성 추정 · 표시 원은 보도 이미지에 포함</figcaption></figure><div class="side"><div class="year">2023.05.22</div><div class="key">“펜타곤 인근 폭발”<br>이미지의 SNS 확산</div><p class="note">언론사를 사칭한 계정도 공유<br>당국은 폭발 사실이 없다고 확인</p></div></div>
+  <div class="footer"><div class="source"><a href="https://arstechnica.com/information-technology/2023/05/ai-generated-image-of-explosion-near-pentagon-goes-viral-sparks-brief-panic/" target="_blank" rel="noopener noreferrer">Ars Technica · 2023.05.22</a> · <a href="https://futurism.com/the-byte/ai-image-pentagon-explosion" target="_blank" rel="noopener noreferrer">이미지: Futurism</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide question">
+  <div class="header"><div class="kicker">THE QUESTION · 2026 · FALSE VIDEO</div><div class="page"></div></div>
+  <div class="titleblock"><h2>경찰 보디캠을 사칭한 AI 영상</h2></div>
+  <div class="stage photo-right"><div class="side"><div class="year">3,400만 회</div><div class="key">허위 단속 영상의<br>누적 조회 수</div><p class="note">2025년 10월부터 약 3개월 유포<br>영상을 믿은 시민들의 항의<br>2026년 2월 제작자 구속 보도</p></div><figure class="media"><div class="viewport"><img src="assets/images/question/police-fake-scenes.jpg" alt="경찰이 공개한 네 가지 AI 허위 단속 영상 화면" loading="lazy"></div><figcaption>경찰이 공개한 허위 영상 사례 · 실제 단속 장면이 아님</figcaption></figure></div>
+  <div class="footer"><div class="source"><a href="https://news.sbs.co.kr/news/endPage.do?news_id=N1008428239" target="_blank" rel="noopener noreferrer">SBS · 2026.02.03</a> · <a href="https://www.fnnews.com/news/202602021723573773" target="_blank" rel="noopener noreferrer">이미지: 파이낸셜뉴스 · 경기북부경찰청 제공</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide question">
+  <div class="header"><div class="kicker">THE QUESTION · 2026.07 · CYBERSECURITY EVALUATION</div><div class="page"></div></div>
+  <div class="titleblock"><h2>OpenAI 에이전트의 외부 시스템 무단 접근</h2></div>
+  <div class="stage one"><figure class="media"><div class="viewport"><img src="assets/images/question/huggingface-attack-chain.svg" alt="Hugging Face 공식 침입 경로 도식: 평가 환경에서 외부 실행 환경을 거쳐 내부 시스템으로 접근" loading="lazy"></div><figcaption>Hugging Face 공식 침입 경로 도식 · 원본 SVG</figcaption></figure></div>
+  <div class="footer"><div class="source"><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener noreferrer">OpenAI · 사건 보고</a> · <a href="https://huggingface.co/blog/agent-intrusion-technical-timeline" target="_blank" rel="noopener noreferrer">Hugging Face · 기술 연표</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide question">
+  <div class="header"><div class="kicker">THE QUESTION · 2026.05–07 · WIKI ACTIVITY</div><div class="page"></div></div>
+  <div class="titleblock"><h2>독일어 위키에 남겨진 에이전트 게시글</h2></div>
+  <div class="stage wide-evidence"><figure class="media"><div class="viewport"><img src="assets/images/question/wiki-activity.png" alt="연구진이 공개한 날짜별 위키 편집 및 직원 트래픽 도표" loading="lazy"></div><figcaption>연구진이 집계한 일별 위키 편집 활동 · 원문 도표</figcaption></figure><div class="fact-strip"><div><b>약 18,000개</b><p>공개 위키에 누적된<br>에이전트 게시글</p></div><div><b>게시판으로 사용</b><p>웹 조사 중 작업 답변과<br>정보를 기록·공유</p></div><div><b>9월 공개</b><p>9월 4일 연구진 보고<br>9월 5일 OpenAI 답변</p></div></div></div>
+  <div class="footer"><div class="source"><a href="https://collusion.wiki/" target="_blank" rel="noopener noreferrer">연구 보고서 · Collusion Wiki</a> · <a href="https://openai.com/hugging-face-incident-and-misalignment/" target="_blank" rel="noopener noreferrer">OpenAI · 공개 위키 사용에 대한 답변</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide question">
+  <div class="header"><div class="kicker">THE QUESTION · 2026.05 · PACKAGE REGISTRY</div><div class="page"></div></div>
+  <div class="titleblock"><h2>RubyGems · GemStuffer</h2></div>
+  <div class="stage photo-left"><figure class="media"><div class="viewport"><img src="assets/images/question/rubygems-uploads.png" alt="연구진이 분석한 5월 RubyGems 일별 패키지 업로드 수" loading="lazy"></div><figcaption>연구진의 분석 도표 · OpenAI 연관성에 대한 구체적 주장 확인은 진행 중</figcaption></figure><div class="side"><div class="year">2026.05</div><div class="key">패키지 대량 업로드<br>신규 가입 일시 중단</div><p class="note">연구진: OpenAI 에이전트의<br>악성 패키지 업로드로 분석</p><p class="status">OpenAI의 9월 11일 답변:<br>공개 정보 수집에 RubyGems 사용 확인.<br>구체적 악성 패키지 주장은 아직 미확인.</p></div></div>
+  <div class="footer"><div class="source"><a href="https://www.rubyhack.ai/" target="_blank" rel="noopener noreferrer">연구 보고서 · 2026.09.11</a> · <a href="https://openai.com/hugging-face-incident-and-misalignment/" target="_blank" rel="noopener noreferrer">OpenAI · 2026.09.11 답변</a> · <a href="https://research.jfrog.com/post/gemstuffer-openai-rubygems/" target="_blank" rel="noopener noreferrer">JFrog · 후속 분석</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide question">
+  <div class="header"><div class="kicker">THE QUESTION · 2026 · CYBERSECURITY EVALUATION</div><div class="page"></div></div>
+  <div class="titleblock"><h2>Claude 평가 중 실제 조직 데이터베이스 침해</h2></div>
+  <div class="stage photo-left"><figure class="media"><div class="viewport"><img src="assets/images/question/anthropic-incidents.png" alt="Anthropic이 공개한 네 가지 사이버보안 평가 사고 도식" loading="lazy"></div><figcaption>Anthropic의 사건별 정리 · 2026년 9월 9일 공개한 4건 기준</figcaption></figure><div class="side"><div class="year">2026.07.30</div><div class="key">실제 조직 3곳에<br>접근한 평가 사례 공개</div><p class="note">외부 평가 환경의 설정 오류로<br>인터넷에 접근 가능한 상태<br>Opus 4.7 사례: 운영 DB의<br>데이터 다운로드·삭제</p><p class="status">일부 보안 보호 장치를 해제한 평가.<br>9월 9일 보고서에서 추가 1건 공개.</p></div></div>
+  <div class="footer"><div class="source"><a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals" target="_blank" rel="noopener noreferrer">Anthropic · 7월 30일 초기 발표</a> · <a href="https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents" target="_blank" rel="noopener noreferrer">Anthropic · 9월 9일 상세 분석</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide question">
+  <div class="header"><div class="kicker">THE QUESTION · 2025 · CONTROLLED SIMULATION</div><div class="page"></div></div>
+  <div class="titleblock"><h2>Claude의 블랙메일 테스트</h2></div>
+  <div class="stage photo-left"><figure class="media"><div class="viewport"><img src="assets/images/question/blackmail-test.png" alt="가상 회사의 임원에게 협박 이메일을 보내는 Claude Sonnet 3.6 실험 화면" loading="lazy"></div><figcaption>Claude Sonnet 3.6 컴퓨터 사용 실험 · 가상 이메일 화면</figcaption></figure><div class="side"><div class="year">통제된 실험</div><div class="key">가상 회사의 메일을<br>관리하는 에이전트</div><p class="note">모델 교체 예고와 사생활 정보 제공<br>교체 철회를 조건으로<br>정보 공개를 위협하는 이메일 작성</p><p class="status">가상 회사·인물을 사용한 실험.<br>2025년 6월 20일 연구 공개.</p></div></div>
+  <div class="footer"><div class="source"><a href="https://www.anthropic.com/research/agentic-misalignment" target="_blank" rel="noopener noreferrer">Anthropic · Agentic Misalignment</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide cover"><h1>THE ENGINEER</h1></section>
+
+<section class="slide engineer "><div class="header"><div class="kicker">THE ENGINEER · JOBS / SKILLS</div><div class="page"></div></div><div class="titleblock"><h2>Which jobs will AI replace?</h2></div><div class="stage job-question"><div class="occupation-list">Developer · Accountant · Translator · Lawyer<br>Designer · Doctor · Engineer · Researcher…</div><div class="job-evidence"><div><span class="scenario-label">INDEED · 2023년 분석</span><p>5,500만 건 이상의 채용 공고<br>2,600개 이상의 업무 스킬</p></div><div><p>분석한 모든 직업군에서<br>GenAI 수행 가능성이 있는 스킬을 확인</p><span class="job-method">ChatGPT의 스킬 수행 능력 자체 평가 기반</span></div></div><p class="engineer-question">‘안전한 직업’을 장기적으로 예측할 수 있을까?</p></div><div class="footer"><div class="source"><a href="https://hiringlab.indeed.com/2023/09/21/indeed-ai-at-work-report/" target="_blank" rel="noopener noreferrer">Indeed Hiring Lab · AI at Work · 2023.09.21</a> · 분석 대상 직업군의 잠재적 노출도. 실제 직업 소멸이나 장기 고용 예측을 측정한 결과가 아님.</div><div class="nav">← → / Space</div></div></section>
+
+<section class="slide engineer">
+  <div class="header"><div class="kicker">THE ENGINEER · 2026.03.05 · ANTHROPIC</div><div class="page"></div></div>
+  <div class="titleblock"><h2>AI 노출도가 높은 직업 TOP 10</h2></div>
+  <div class="stage one"><figure class="media"><div class="viewport"><img src="assets/images/engineer/ai-exposure-top10-2026.png" alt="Anthropic AI 노출도 순위: 1 컴퓨터 프로그래머 74.5%, 2 고객상담원 70.1%, 3 데이터 입력원 67.1%, 4 의료기록 전문가 66.7%, 5 시장조사·마케팅 전문가 64.8%, 6 도소매·제조업 영업직 62.8%(기술·과학 제품 제외), 7 금융·투자 분석가 57.2%, 8 소프트웨어 품질 분석·테스터 51.9%, 9 정보보안 분석가 48.6%, 10 컴퓨터 사용자 지원 전문가 46.8%" loading="lazy"></div><figcaption>상위 3개: 컴퓨터 프로그래머 · 고객상담원 · 데이터 입력원 ｜ 미국 직업 분류와 Claude 사용 자료 기반 · 소멸 확률·해고 비율이 아님</figcaption></figure></div>
+  <div class="footer"><div class="source"><a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank" rel="noopener noreferrer">Anthropic · Labor market impacts of AI · Figure 3 원본</a> · Observed exposure: 이론적 수행 가능성·실제 사용·자동화 방식·업무 시간 비중을 반영한 지표</div><div class="nav"><a href="https://youre-next.web.app/en/?lang=ko&amp;cc=KR#/rankings/KR" target="_blank" rel="noopener noreferrer" style="font-size:18px;color:var(--lime)">한국 직업 순위 보기 ↗</a></div></div>
+</section>
+
+<section class="slide engineer">
+  <div class="header"><div class="kicker">THE ENGINEER · 2022–2026 · U.S. EMPLOYMENT</div><div class="page"></div></div>
+  <div class="titleblock"><h2>소프트웨어 개발자의 연령별 고용</h2></div>
+  <div class="stage photo-left"><figure class="media"><div class="viewport"><img src="assets/images/engineer/developer-employment.png" alt="미국 ADP 표본의 소프트웨어 개발자 연령별 고용지수 원본 그래프" loading="lazy"></div><figcaption>Stanford Digital Economy Lab · ADP Research · 원본 도표</figcaption></figure><div class="side"><div class="year">22–25세</div><div class="key">연령대별로 다른<br>고용지수의 움직임</div><p class="note">2022년 11월 = 100<br>미국 ADP 급여 자료 표본<br>2026년 7월 공개 자료</p><p class='status'>관찰된 고용 추이.<br>AI만의 인과효과나 한국 전체<br>엔지니어 고용을 뜻하지 않음.</p></div></div>
+  <div class="footer"><div class="source"><a href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener noreferrer">Stanford · Canaries Dashboard</a></div><div class="nav">← → / Space</div></div>
+</section>
+
+
+
+
+
+
+
+<section class="slide engineer "><div class="header"><div class="kicker">THE ENGINEER · FROM JOB TO TASK</div><div class="page"></div></div><div class="titleblock"><h2>ENGINEER를 해체해 봅시다.</h2></div><div class="stage task-map"><div class="task-words"><span>Search</span><span>Coding</span><span>Documentation</span><span>Analysis</span><span>Debugging</span><span>Simulation</span><span>Design</span><span>Problem Definition</span><span>Decision</span><span>Judgment</span><span>Responsibility</span></div><div class="question-shift"><p>Engineer가 사라질까?</p><span aria-hidden="true">→</span><p>Engineer의 어떤 업무가<br>사라지거나 달라질까?</p></div></div><div class="footer"><div class="source">강의용 업무 분해 · 나열 순서는 자동화 가능성의 순위가 아님. AI가 판단을 보조하는 것과 조직 내 책임의 귀속은 구분.</div><div class="nav">← → / Space</div></div></section>
+
+<section class="slide engineer task-breakdown">
+  <div class="header"><div class="kicker">THE ENGINEER · TASK BREAKDOWN</div><div class="page"></div></div>
+  <div class="titleblock"><h2>엔지니어의 역할은 어떻게 달라지는가?</h2></div>
+  <div class="stage one"><table class="work-comparison"><thead><tr><th>업무 단계</th><th>AI 대체·자동화 후보<small>범위·입력·완료 기준을 정해 맡기는 작업</small></th><th>사람의 판단·현장 작업<small>AI의 보조를 받으며 수행할 수 있는 작업</small></th></tr></thead><tbody><tr><th scope="row">문제 정의</th><td><span class="ai-task">회의록 요약 · 요구사항 목록화</span></td><td>이해관계자 협의 · 우선순위 결정</td></tr><tr><th scope="row">조사·설계</th><td><span class="ai-task">자료 검색 · 대안 생성 · 계산 초안</span></td><td>가정·제약 확인 · 설계안 선택</td></tr><tr><th scope="row">구현</th><td><span class="ai-task">코드·스크립트 생성 · 반복 설정</span></td><td>시스템 통합 · 현장 설치·조정</td></tr><tr><th scope="row">시험·검증</th><td><span class="ai-task">시험 항목 초안 · 자동 시험 실행</span></td><td>시험 조건 설계 · 결과의 타당성 판단</td></tr><tr><th scope="row">분석·문서</th><td><span class="ai-task">데이터 정리 · 그래프 · 보고서 초안</span></td><td>이상 원인 검증 · 결과 해석</td></tr><tr><th scope="row">운영·협업</th><td><span class="ai-task">로그 분류 · 상태 요약 · 변경안 작성</span></td><td>변경 승인 · 장애 대응 · 부서 간 조율</td></tr></tbody></table></div>
+  <div class="footer"><div class="source"><a href="https://www.nasa.gov/reference/2-0-fundamentals-of-systems-engineering/" target="_blank" rel="noopener noreferrer">업무 구분 참고: NASA 시스템 공학</a> · 강의용 분해 예시. 자동화 가능 범위는 도구·데이터·검증 조건에 따라 달라짐</div><div class="nav">← → / Space</div></div>
+</section>
+
+<section class="slide engineer compiler-history"><div class="header"><div class="kicker">THE ENGINEER · COMPILER / IBM</div><div class="page"></div></div><div class="titleblock"><h2>1957년, FORTRAN 컴파일러의 등장</h2></div><div class="stage photo-left"><figure class="media"><div class="viewport"><img src="assets/images/engineer/fortran.jpg" alt="Computer History Museum의 1957 FORTRAN 자료 원본" loading="lazy"></div><figcaption>Computer History Museum · FORTRAN · 1957년 자료</figcaption></figure><div class="side"><div class="year">1957</div><div class="key">컴퓨터가 만든 코드는<br>얼마나 효율적일까?</div><p class="note">IBM 704용 FORTRAN 컴파일러 공개<br>고급 언어를 기계 명령으로 변환</p><p class="status">당시 쟁점: 자동 생성된 코드가<br>직접 작성한 코드만큼 빠를 수 있는가?</p></div></div><div class="abstraction-path"><span>Machine Code</span><b>→</b><span>Assembly</span><b>→</b><span>High-level Language</span><b>⇢</b><span>Natural Language?</span></div><div class="footer"><div class="source"><a href="https://www.ibm.com/history/fortran" target="_blank" rel="noopener noreferrer">IBM · Fortran 역사</a> · <a href="https://www.computerhistory.org/timeline/1957/" target="_blank" rel="noopener noreferrer">CHM · 원본 자료</a> · 마지막 화살표는 강의의 비교 질문. LLM과 컴파일러의 정확성을 동일시하지 않음.</div><div class="nav">← → / Space</div></div></section>
+
+<section class="slide engineer "><div class="header"><div class="kicker">THE ENGINEER · ANDREJ KARPATHY / 2025</div><div class="page"></div></div><div class="titleblock"><h2>Software 1.0 → 2.0 → 3.0</h2></div><div class="stage software-eras"><div class="software-columns"><div><span>SOFTWARE 1.0</span><h3>CODE</h3><p>사람이 작성한 코드</p></div><b>→</b><div><span>SOFTWARE 2.0</span><h3>WEIGHTS</h3><p>데이터로 학습한 가중치</p></div><b>→</b><div><span>SOFTWARE 3.0</span><h3>LANGUAGE</h3><p>LLM에 전달하는 자연어 지시</p></div></div><div class="karpathy-summary"><p>LLM을 새로운 종류의 컴퓨터로 보고,<br>영어로 작성한 프롬프트를 프로그램으로 설명</p><span>Andrej Karpathy · Software Is Changing (Again) · 강연 요약</span></div><p class="engineer-question">또 한 번 추상화의 계단을 올라가는 중일까?</p></div><div class="footer"><div class="source"><a href="https://www.youtube.com/watch?v=LCEmiRjPEtQ&amp;t=180s" target="_blank" rel="noopener noreferrer">Y Combinator · Andrej Karpathy · 2025.06 · 03:00–04:28</a> · 카파시의 개념 구분. 세 방식은 함께 사용될 수 있음.</div><div class="nav">← → / Space</div></div></section>
+
+
+
+
+
+<section class="slide cover"><h1>THE CHOICE</h1></section>
+
+<section class="slide choice"><div class="header"><div class="kicker">THE CHOICE · OUTPUT / LEARNING</div><div class="page"></div></div><div class="titleblock"><h2>누가 더 빨리 결과를 만들었나?</h2></div><div class="stage growth-stage"><div class="rookie-comparison"><div><span>2014 · 신입</span><strong>3일</strong><p>고민 · 실패 · 검색 · 질문</p></div><div><span>2026 · 신입</span><strong>20분</strong><p>AI · 완성</p></div></div><div class="gps-reflection"><figure class="media"><div class="viewport"><img src="assets/images/engineer/gps-study.png" alt="GPS 사용과 공간 기억 연구의 가상 길찾기 과제 원본 그림" loading="lazy"></div><figcaption>GPS와 공간 기억 연구 · 가상 길찾기 과제</figcaption></figure><div><h3>그리고 누가 더 많이 성장했나?</h3><p>GPS로 목적지에 도착했다.<br>나는 그 길을 더 잘 알게 되었을까?</p><p>AI로 결과물을 완성했다.<br>나는 무엇을 더 잘하게 되었을까?</p></div></div></div><div class="footer"><div class="source">위 시간 비교는 가상 상황이며 성장 차이를 측정한 실험이 아님. · <a href="https://www.nature.com/articles/s41598-020-62877-0" target="_blank" rel="noopener noreferrer">GPS 연구 · 2020</a> · 50명 조사 / 13명 추적 · 상관관계 연구, AI 학습의 인과효과가 아님 · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></div><div class="nav">← → / Space</div></div></section>
+
+<section class="slide choice"><div class="header"><div class="kicker">THE CHOICE · DEEP BLUE / ALPHAGO / TODAY</div><div class="page"></div></div><div class="titleblock"><h2>딥블루와 알파고 이후, 무엇이 달라졌을까?</h2></div><div class="stage go-analysis-stage"><div class="go-analysis-main"><figure class="media"><div class="viewport"><img src="assets/images/choice/katrain-analysis.png" alt="KaTrain 원본 분석 화면: 후보 수 평가, 승률 그래프, 백 승률 64.3%, 예상 백 2.8집 우세" loading="lazy"></div><figcaption>KaTrain + KataGo · 개발자가 공개한 실제 분석 화면 · 원본 비율 유지</figcaption></figure><div class="go-analysis-side"><div class="go-history-mini"><figure class="media"><div class="viewport"><img src="assets/images/deep-blue-kasparov.jpg" alt="딥블루와 카스파로프" loading="lazy"></div><figcaption>1997 · Deep Blue</figcaption></figure><figure class="media"><div class="viewport"><img src="assets/images/alphago-lee-official.webp" alt="알파고와 이세돌" loading="lazy"></div><figcaption>2016 · AlphaGo</figcaption></figure></div><div class="go-analysis-readout"><h3>지금 이 판에서 AI가 보여주는 것</h3><p><b>승률·형세</b>백 64.3% · 예상 백 +2.8집</p><p><b>판단의 변화</b>착수에 따른 승률·집 차이 그래프</p><p><b>다음 수와 복기</b>후보 수 · 예상 손실 · 후속 수순</p></div><p class="go-analysis-context">기사의 연구·훈련<br>입문자의 복습 · 관전 해설</p></div></div><p class="go-question">인간과 AI는 바둑에서 어떻게 상호작용하며 공존하고 있을까?</p></div><div class="footer"><div class="source"><a href="https://www.nihonkiin.or.jp/player/national/report_2025houshin.html" target="_blank" rel="noopener noreferrer">일본기원 · 대표팀 연구</a> · <a href="https://github.com/sanderland/katrain/blob/f4981cf905cece90085ce4e3967415d0c16d525f/README.md" target="_blank" rel="noopener noreferrer">KaTrain · 분석 화면 / 사용 설명</a> · <a href="https://m.baduk.or.kr/news/B01_view.asp?news_no=5691" target="_blank" rel="noopener noreferrer">한국기원 · AI 승률 해설</a> · <a href="https://www.baduk.or.kr/news/summary_view.asp?news_div=KBL&amp;news_no=840" target="_blank" rel="noopener noreferrer">2025–26 바둑리그</a><br>활용 사례와 대회 지속은 바둑 인구·시장 성장의 증거와 구분. 승률·집 차이는 해당 엔진과 탐색 조건의 추정치. 실제 인간 대국 결과를 보장하지 않음.</div><div class="nav">← → / Space</div></div></section>
+
+<section class="slide choice"><div class="header"><div class="kicker">THE CHOICE · HUMAN + MACHINE</div><div class="page"></div></div><div class="titleblock"><h2>AI와 상호작용하며 일할 때, 나의 역할은?</h2></div><div class="stage team-stage"><div class="team-transition"><span>Human vs Machine</span><b>→</b><strong>Human + Machine</strong></div><div class="engineer-team"><h3>한 명의 Engineer + 여러 AI 동료</h3><div class="agent-roles"><p>Research<small>Agent</small></p><p>Coding<small>Agent</small></p><p>Simulation<small>Agent</small></p><p>Review<small>Agent</small></p><p>Documentation<small>Agent</small></p></div></div><div class="oversight-questions"><div><b>DIRECTION</b><p>무엇을 해결하고<br>어디로 향할까?</p></div><div><b>GUARDRAILS</b><p>어디까지 맡기고<br>언제 멈추게 할까?</p></div><div><b>JUDGMENT</b><p>어떤 근거로<br>결과를 채택할까?</p></div><div><b>RESPONSIBILITY</b><p>누가 검토·승인하고<br>후속 조치를 맡을까?</p></div></div></div><div class="footer"><div class="source">역할 분담을 생각하기 위한 가상 팀 구성 · 에이전트 명칭은 업무 역할의 예시이며 특정 제품의 검증된 성능을 뜻하지 않음.</div><div class="nav">← → / Space</div></div></section>
+
+<section class="slide choice"><div class="header"><div class="kicker">THE CHOICE · ANSWER / THINKING</div><div class="page"></div></div><div class="titleblock"><h2>What kind of engineer will you become?</h2></div><div class="stage partner-stage"><div class="partner-comparison"><div><span>Answer Machine User</span><h3>“정답 알려줘”</h3><p>문제 → 답변 → 제출</p></div><div><span>Thinking Partner User</span><h3>“내 생각의 약점을 찾아줘”</h3><p>내 가설 → 반례·피드백 → 검증·수정</p></div></div><p class="five-year-question">이 두 방식을 반복한 사람은 5년 뒤 같을까?</p><div class="methods-reminder"><span>함께 익힐 방법</span><p>프롬프트 · 컨텍스트 · 하네스 엔지니어링 · LLM 위키 · 루프 엔지니어링</p></div><p class="final-value-question">AI가 있는 시대에 나는 어떤 가치를 만들어낼 것인가?</p></div><div class="footer"><div class="source">학습 방식에 관한 가상 비교 · 5년 후 성과를 예측한 연구 결과가 아님. 질문 방식과 함께 실제 수행·검증·피드백 경험을 생각하기.</div><div class="nav">← → / Space</div></div></section>
+</main>
+<script>
+(() => {
+ const deck=document.querySelector('.deck');
+ const slides=[...document.querySelectorAll('.slide')];
+ const progress=document.getElementById('progress');
+ let idx=Math.max(0,Math.min(slides.length-1,Number(location.hash.match(/^#slide-(\d+)$/)?.[1]||1)-1));
+ const num=n=>String(n).padStart(2,'0');
+ function fit(){deck.style.setProperty('--deck-scale',Math.min(innerWidth/1600,innerHeight/900))}
+ function render(){
+   slides.forEach((s,i)=>{
+     s.classList.toggle('active',i===idx);
+     s.setAttribute('aria-hidden',String(i!==idx));
+     const player=s.querySelector('iframe[data-src]');
+     if(player){
+       const localFile=location.protocol==='file:';
+       player.hidden=localFile;
+       s.querySelector('.video-notice').hidden=!localFile;
+       if(i===idx&&!localFile&&!player.hasAttribute('src'))player.src=player.dataset.src;
+       else if(i!==idx&&player.hasAttribute('src'))player.removeAttribute('src');
+     }
+     const p=s.querySelector('.page');if(p)p.textContent=`${num(i+1)} / ${num(slides.length)}`;
+   });
+   progress.style.width=((idx+1)/slides.length*100)+'%';
+   progress.hidden=slides[idx].classList.contains('cover');
+   history.replaceState(null,'','#slide-'+(idx+1));
+ }
+ function go(n){idx=Math.max(0,Math.min(slides.length-1,n));render()}
+ document.querySelectorAll('[data-slide-step]').forEach(button=>{
+   button.addEventListener('click',()=>go(idx+Number(button.dataset.slideStep)));
+ });
+ addEventListener('hashchange',()=>{const page=Number(location.hash.match(/^#slide-(\d+)$/)?.[1]);if(page)go(page-1)});
+ addEventListener('resize',fit);
+ addEventListener('keydown',e=>{
+   if(e.altKey||e.ctrlKey||e.metaKey)return;
+   if(['ArrowRight','PageDown',' ','Spacebar'].includes(e.key)){e.preventDefault();go(idx+1)}
+   else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(idx-1)}
+   else if(e.key==='Home'){e.preventDefault();go(0)}
+   else if(e.key==='End'){e.preventDefault();go(slides.length-1)}
+ });
+ fit();render();
+})();
+</script>
+</body>
+</html>
