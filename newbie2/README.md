@@ -1,6 +1,6 @@
 # AI 신입사원 강의
 
-THE SPEED / THE QUESTION / THE ENGINEER / THE CHOICE · 전체 42장
+THE SPEED / THE QUESTION / THE ENGINEER / THE CHOICE · 전체 43장
 
 - [슬라이드](index.html)
 - [발표 메모](review/engineer-choice-notes.md)

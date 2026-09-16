@@ -19,6 +19,6 @@
 
 ## 최신 강의 자료 · newbie2
 
-- [4개 챕터 · 42장 슬라이드](newbie2/index.html)
+- [교육 표지 + 4개 챕터 · 43장 슬라이드](newbie2/index.html)
 - [실행 방법](newbie2/README.md)
 - [발표 메모](newbie2/review/engineer-choice-notes.md)
