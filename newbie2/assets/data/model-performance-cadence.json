@@ -1,0 +1,19 @@
+{
+  "source": "https://metr.org/blog/2026-1-29-time-horizon-1-1/",
+  "published": "2026-01-29",
+  "checked": "2026-09-17",
+  "metric": "50% task-completion time horizon, measured in human task duration; software/reasoning tasks",
+  "doubling_days": {
+    "hybrid_2019_onwards": 196.5,
+    "TH1_1_since_2023": 130.8
+  },
+  "note": "Historical trends dependent on task mix and period. Not release cadence, universal capability doubling, AI runtime, or guaranteed future growth.",
+  "updated_estimate": {
+    "source": "https://metr.org/risk-report-feb-mar-2026.pdf#page=135",
+    "published": "2026-05-19",
+    "period": "Models released after 2024-01-01, report assessment February–March 2026",
+    "doubling_days": 105,
+    "doubling_months_approx": 3.5,
+    "note": "Not separate 2025-only or 2026-only estimates."
+  }
+}
